@@ -53,7 +53,8 @@
                 left: -100px;
                 top: 240px;
                 rotate: 20deg;
-                z-index: 4 !important;
+                z-index: 10 !important;
+
                 .Cards__decor_colored_item_inner {
                     width: 369px;
                     height: 211px;
@@ -67,6 +68,10 @@
                 top: 240px;
                 rotate: 20deg;
                 left: -100px;
+
+                img {
+                    width: 200px !important;
+                }
             }
 
             &_5 {
