@@ -49,7 +49,6 @@ export default observer(() => {
             <Route path="/Cards" element={<Cards />} />
             <Route path="/Wallet" element={<Wallet />} />
             {/* <Route path="/PitchDeck" element={<PitchDeck />} /> */}
-            {/* <Route path="/PitchDeck" element={<Advanced />} /> */}
             <Route path="/PitchDeck" element={<WhyExchange />} />
             <Route path="/More" element={<More />} />
             <Route path="/Introduction" element={<Introduction />} />

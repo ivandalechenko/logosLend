@@ -33,7 +33,7 @@ export default () => {
                 top: 0, // Убираем любое движение вниз
                 scrollTrigger: {
                     trigger: '.Protocols',
-                    markers: true,
+                    // markers: true,
                     start: "top 100px", // Фиксируем при достижении верха
                     end: "bottom 100px", // Разрешаем выход при конце секции
                     pin: true, // Закрепляем

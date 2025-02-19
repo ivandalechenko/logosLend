@@ -1,18 +1,22 @@
-.WhyExchange{
+.WhyExchange {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    @media(max-width: 900px){
+    min-height: 100vh;
+
+    @media(max-width: 900px) {
         flex-wrap: wrap;
         gap: 70px;
     }
-    @media(max-width: 400px){
+
+    @media(max-width: 400px) {
         gap: 10px;
     }
-    &__content{
+
+    &__content {
         width: 555px;
         display: flex;
         flex-wrap: wrap;
@@ -20,126 +24,160 @@
         padding: 0px 0px 0px 70px;
         position: relative;
         z-index: 9999;
-        @media(max-width: 900px){
+
+        @media(max-width: 900px) {
             width: 100%;
             order: 1;
             padding: 0px 70px 0px 70px;
         }
-        @media(max-width: 500px){
+
+        @media(max-width: 500px) {
             padding: 0px 20px 0px 20px;
         }
-        &-title{
+
+        &-title {
             width: 100%;
             font-family: "ClashDisplayMedium";
             font-size: 56px;
-            @media(max-width: 900px){
+
+            @media(max-width: 900px) {
                 text-align: center;
             }
-            @media(max-width: 500px){
+
+            @media(max-width: 500px) {
                 text-align: left;
             }
         }
-        &-description{
+
+        &-description {
             width: 100%;
             font-family: "Helvetica";
             font-size: 17px;
             color: #ACACAC;
-            @media(max-width: 900px){
+
+            @media(max-width: 900px) {
                 text-align: center;
             }
-            @media(max-width: 500px){
+
+            @media(max-width: 500px) {
                 text-align: left;
             }
         }
     }
-    &__decor{
+
+    &__decor {
         width: calc(100% - 555px);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         height: 400px;
-        @media(max-width: 900px){
+
+        @media(max-width: 900px) {
             width: 100%;
             order: 2;
         }
-        &-eth{
+
+        &-eth {
             left: 120px;
             bottom: 150px;
-            img{
+
+            img {
                 width: 180px;
             }
-            @media(max-width: 400px){
-               left: 100px;
-               bottom: 100px;
-               img{
-                width: 120px;
-               }
+
+            @media(max-width: 400px) {
+                left: 100px;
+                bottom: 100px;
+
+                img {
+                    width: 120px;
+                }
             }
         }
-        &-avax{
+
+        &-avax {
             right: 120px;
             bottom: 150px;
-            img{
+
+            img {
                 width: 180px;
-                @media(max-width: 400px){
+
+                @media(max-width: 400px) {
                     width: 150px;
                 }
             }
-            @media(max-width: 400px){
+
+            @media(max-width: 400px) {
                 right: 100px;
                 bottom: 100px;
-                img{
-                 width: 120px;
+
+                img {
+                    width: 120px;
                 }
-             }
+            }
         }
-        &-sol{
+
+        &-sol {
             right: 120px;
             top: 150px;
-            img{
+
+            img {
                 width: 180px;
-                @media(max-width: 400px){
+
+                @media(max-width: 400px) {
                     width: 150px;
                 }
             }
-            @media(max-width: 400px){
+
+            @media(max-width: 400px) {
                 right: 100px;
                 top: 100px;
-                img{
-                 width: 120px;
+
+                img {
+                    width: 120px;
                 }
-             }
+            }
         }
-        &-bera{
+
+        &-bera {
             left: 120px;
             top: 150px;
-            img{
+
+            img {
                 width: 180px;
-                @media(max-width: 400px){
+
+                @media(max-width: 400px) {
                     width: 150px;
                 }
             }
-            @media(max-width: 400px){
+
+            @media(max-width: 400px) {
                 left: 100px;
                 top: 100px;
-                img{
-                 width: 120px;
+
+                img {
+                    width: 120px;
                 }
-             }
+            }
         }
-        &-border{
+
+        &-border {
             top: 55px;
         }
-        &-circleup{
+
+        &-circleup {
             bottom: 450px;
-            img{
+
+            img {
                 opacity: 0.5;
             }
         }
-        &-circledown{
+
+        &-circledown {
             top: 470px;
-            img{
+
+            img {
                 opacity: 0.5;
             }
         }
