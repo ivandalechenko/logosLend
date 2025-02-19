@@ -1,0 +1,46 @@
+.Advanced{
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin: 0 auto;
+    @media(max-width: 900px){
+        flex-wrap: wrap;
+    }
+    @media(max-width: 500px){
+        gap: 50px;
+    }
+    &__title{
+        order: 1;
+        width: calc(50% - 100px);
+        font-family: "ClashDisplayMedium";
+        font-size: 74px;
+        max-width: 400px;
+        @media(max-width: 900px){
+            width: 100%;
+            max-width: 70%;
+            text-align: center;
+        }
+        @media(max-width: 500px){
+            text-align: left;
+            max-width: 90%;
+        }
+        @media(max-width: 400px){
+            font-size: 58px;
+        }
+    }
+    &__block{
+        width: calc(50% - 100px);
+        order: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 13px;
+        @media(max-width: 900px){
+            width: 90%;
+        }
+    }
+}
