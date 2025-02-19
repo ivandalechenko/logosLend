@@ -4,11 +4,92 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    justify-content: center;
     &__title{
         color: linear-gradient(to bottom, #FFFFFF 0%, #F8F8F8 44%, #999999 100%);
         width: 100%;
         text-align: center;
         font-family: "ClashDisplayMedium";
         font-size: 62px;
+    }
+    &__description{
+        width: 100%;
+        color: #8B8B8B;
+        text-align: center;
+        font-family: "SFPro";
+        font-size: 14px;
+        max-width: 700px;
+    }
+    &__join{
+        margin-top: 35px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        &-title{
+            width: 100%;
+            text-align: center;
+            font-family: "SFPro";
+            font-size: 13px;
+        }
+        &-input{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            input{
+                backdrop-filter: blur(10px);
+                outline: none;
+                border: 1px solid rgba($color: #FFFFFF, $alpha: .2);
+                background-color: rgba($color: #D9D9D9, $alpha: .02);
+                width: 300px;
+                height: 43px;
+                border-radius: 57px;
+                padding: 14px 0px 14px 21px;
+                color: white;
+                font-family: "Helvetica";
+                font-size: 12px;
+                &::placeholder{
+                    color: white;
+                    font-family: "Helvetica";
+                    font-size: 12px;
+                }
+            }
+            button {
+                position: relative;
+                width: 82px;
+                height: 28px;
+                border-radius: 113px;
+                color: black;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 9px;
+                font-family: "Helvetica";
+                padding-left: 10px;
+                padding-right: 10px;
+                transition: all 300ms ease-in-out;
+                bottom: 36px;
+                left: 100px;
+    
+                img {
+                    width: 22px;
+                    height: 22px;
+                    transition: filter 300ms;
+                }
+    
+                &:hover {
+                    color: white;
+                    background-color: black;
+    
+                    img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
     }
 }
