@@ -30,6 +30,9 @@
         @media(max-width: 400px){
             font-size: 58px;
         }
+        @media(min-width: 1900px){
+            font-size: 82px;
+        }
     }
     &__block{
         width: calc(50% - 100px);
