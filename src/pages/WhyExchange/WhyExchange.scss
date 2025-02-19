@@ -39,6 +39,9 @@
             width: 100%;
             font-family: "ClashDisplayMedium";
             font-size: 56px;
+            @media(min-width: 1900px){
+                font-size: 72px;
+            }
 
             @media(max-width: 900px) {
                 text-align: center;
@@ -54,6 +57,9 @@
             font-family: "Helvetica";
             font-size: 17px;
             color: #ACACAC;
+            @media(min-width: 1900px){
+                font-size: 27px;
+            }
 
             @media(max-width: 900px) {
                 text-align: center;

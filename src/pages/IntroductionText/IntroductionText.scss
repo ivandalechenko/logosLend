@@ -1,0 +1,33 @@
+.IntroductionText{
+    max-width: 1600px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 40px 100px;
+    @media (max-width: 550px){
+        padding: 20px 20px;
+    }
+    &__title{
+        font-family: "ClashDisplayMedium";
+        font-size: 56px;
+        width: 100%;
+        @media (max-width: 550px){
+            font-size: 46px;
+        }
+        @media (min-width: 1900px){
+            font-size: 72px;
+        }
+    }
+    &__description{
+        color: rgba($color: #FFFFFF, $alpha: .75);
+        font-size: 17px;
+        font-family: "Helvetica";
+        max-width: 700px;
+        line-height: 150%;
+        font-weight: 400;
+        @media (min-width: 1900px){
+            font-size: 24px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import Advanced from '../Advanced/Advanced';
+import IntroductionText from '../IntroductionText/IntroductionText';
 import './WhyExchange.scss';
 export default () => {
     return (
@@ -35,7 +36,11 @@ export default () => {
                     </div>
                 </div>
             </div>
+            <div className='width'></div>
             <Advanced />
+            <div className='width'></div>
+            <IntroductionText />
+            <div className='width'></div>
         </>
     )
 }
