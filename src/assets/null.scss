@@ -1,0 +1,235 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Montserrat';
+    letter-spacing: -0.5px;
+}
+
+.dnone {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+textarea {
+    font-family: 'Montserrat';
+    box-sizing: border-box;
+}
+
+.free_img {
+    width: 0px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+body {
+    width: 100vw;
+    background: radial-gradient(circle, rgba(94, 93, 135, 0.25) 0%, rgba(36, 35, 59, 0) 61%);
+    min-height: 100vh;
+    background-color: #060606;
+}
+
+
+.App {
+    width: 100%;
+    overflow: hidden;
+
+    &_content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        min-height: calc(100dvh - 88px);
+
+        @media(max-width: 900px) {
+            min-height: calc(100dvh - 55px);
+        }
+    }
+}
+
+
+img {
+    user-select: none;
+}
+
+/* Чёрный фон страницы */
+body {
+    background-color: black;
+}
+
+/* Стили для iframe */
+iframe {
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+/* Стилизация скроллбара */
+iframe::-webkit-scrollbar {
+    width: 5px;
+    /* Узкий вертикальный скроллбар */
+    height: 5px;
+    /* Узкий горизонтальный скроллбар */
+}
+
+iframe::-webkit-scrollbar-track {
+    background: black;
+    /* Чёрный фон скроллбара */
+}
+
+iframe::-webkit-scrollbar-thumb {
+    background: white;
+    /* Белый ползунок */
+    border-radius: 10px;
+}
+
+iframe::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+    /* Серый при наведении */
+}
+
+/* Общие стили для скроллбара (страница + iframe) */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Узкий вертикальный скроллбар */
+    height: 5px;
+    /* Узкий горизонтальный скроллбар */
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+    /* Чёрный фон скроллбара */
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    /* Белый ползунок */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+    /* Серый при наведении */
+}
