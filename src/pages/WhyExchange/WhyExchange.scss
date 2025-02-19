@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-around;
     min-height: 100vh;
+    padding: 30px 12px;
 
     @media(max-width: 900px) {
         flex-wrap: wrap;
@@ -25,6 +26,10 @@
         position: relative;
         z-index: 9999;
 
+        @media(min-width: 1900px) {
+            width: 800px;
+        }
+
         @media(max-width: 900px) {
             width: 100%;
             order: 1;
@@ -39,9 +44,7 @@
             width: 100%;
             font-family: "ClashDisplayMedium";
             font-size: 56px;
-            @media(min-width: 1900px){
-                font-size: 72px;
-            }
+
 
             @media(max-width: 900px) {
                 text-align: center;
@@ -57,8 +60,9 @@
             font-family: "Helvetica";
             font-size: 17px;
             color: #ACACAC;
-            @media(min-width: 1900px){
-                font-size: 27px;
+
+            @media(min-width: 1900px) {
+                font-size: 22px;
             }
 
             @media(max-width: 900px) {

@@ -20,7 +20,6 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import Advanced from "./pages/Advanced/Advanced";
 import WhyExchange from "./pages/WhyExchange/WhyExchange";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);

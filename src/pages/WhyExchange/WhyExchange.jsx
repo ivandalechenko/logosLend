@@ -39,8 +39,6 @@ export default () => {
             <div className='width'></div>
             <Advanced />
             <div className='width'></div>
-            <IntroductionText />
-            <div className='width'></div>
         </>
     )
 }
