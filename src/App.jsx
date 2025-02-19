@@ -20,6 +20,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import Advanced from "./pages/Advanced/Advanced";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -46,7 +47,8 @@ export default observer(() => {
             <Route path="/Protocols" element={<Protocols />} />
             <Route path="/Cards" element={<Cards />} />
             <Route path="/Wallet" element={<Wallet />} />
-            <Route path="/PitchDeck" element={<PitchDeck />} />
+            {/* <Route path="/PitchDeck" element={<PitchDeck />} /> */}
+            <Route path="/PitchDeck" element={<Advanced />} />
             <Route path="/More" element={<More />} />
             <Route path="/Introduction" element={<Introduction />} />
 

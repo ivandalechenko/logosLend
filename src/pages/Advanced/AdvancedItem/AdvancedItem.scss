@@ -1,0 +1,29 @@
+.AdvancedItem{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: #D9D9D9, $alpha: .02);
+    padding: 26px 40px 26px 40px;
+    border-radius: 16px;
+    gap: 50px;
+    margin: 0 auto;
+    img{
+        width: 40px;
+        height: 40px;
+    }
+    &__description{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        &-title{
+            font-family: "Helvetica";
+            font-size: 16px;
+        }
+        &-description{
+            font-family: "Helvetica";
+            font-size: 12px;
+            color: rgba($color: #FFFFFF, $alpha: .5);
+        }
+    }
+}
