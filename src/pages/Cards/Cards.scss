@@ -38,29 +38,22 @@
             pointer-events: none;
 
             &_1 {
-                top: -50px;
-                left: 30px;
-                rotate: -20deg;
+                top: 100px;
+                left: 230px;
+                rotate: 20deg;
             }
 
             &_2 {
-                top: 50px;
-                left: -240px;
+                top: 100px;
+                left: -140px;
+                rotate: -20deg;
             }
 
             &_3 {
-                left: 180px;
-                top: 110px;
-                rotate: 15deg;
-                z-index: 4 !important;
-            }
-
-            &_4 {
-                z-index: 50;
+                left: -100px;
                 top: 240px;
                 rotate: 20deg;
-                left: -100px;
-
+                z-index: 4 !important;
                 .Cards__decor_colored_item_inner {
                     width: 369px;
                     height: 211px;
@@ -69,18 +62,18 @@
                 }
             }
 
+            &_4 {
+                z-index: 50;
+                top: 240px;
+                rotate: 20deg;
+                left: -100px;
+            }
+
             &_5 {
                 rotate: -15deg;
                 top: 320px;
                 left: 220px;
                 z-index: 3 !important;
-            }
-
-            &_6 {
-                rotate: -20deg;
-                top: 400px;
-                left: -100px;
-                z-index: 2 !important;
             }
 
             &_item {

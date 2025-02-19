@@ -17,7 +17,7 @@ export default () => {
             const delayModifier = .2
             const baseDelay = .5
 
-            const elements = [6, 5, 3, 1, 2, 4]; // Убедимся, что массив определён
+            const elements = [1, 2, 3, 4, 5]; // Убедимся, что массив определён
             if (!Array.isArray(elements) || elements.length === 0) return; // Проверяем, что это массив
 
             elements.forEach((element, index) => {
@@ -50,6 +50,17 @@ Users can earn passive rewards simply by using their card for everyday purchases
                 delay: 3,
                 duration: 1
             })
+            gsap.to('.Cards__title', {
+                text: 'Logos Visa Cards',
+                delay: 2,
+                duration: 2
+            })
+            gsap.to('.Cards__description', {
+                text: 'Crypto can be spent like cash with Visa integration: direct crypto-to-fiat at any merchant easy fiat-to-crypto conversion for newcomers, instant transactions Visually enhanced in collaboration with your favorite memecoins',
+                delay: 2,
+                duration: 2
+            })
+
 
 
 
@@ -114,7 +125,7 @@ Users can earn passive rewards simply by using their card for everyday purchases
                 <div className='Cards__decor_colored' style={{
                     opacity: showColoredCards ? 1 : 0
                 }}>
-                    {Array(6)
+                    {Array(5)
                         .fill(0)
                         .map((_, index) => {
                             return <div className={`Cards__decor_colored_item Cards__decor_colored_${index + 1} free_img`} style={{

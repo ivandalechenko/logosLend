@@ -11,6 +11,8 @@ import Cards from "./pages/Cards/Cards";
 import { observer } from "mobx-react-lite";
 import Wallet from "./pages/Wallet/Wallet";
 import PitchDeck from "./pages/PitchDeck/PitchDeck";
+import More from "./pages/More/More";
+import Introduction from "./pages/Introduction/Introduction";
 
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
@@ -45,6 +47,8 @@ export default observer(() => {
             <Route path="/Cards" element={<Cards />} />
             <Route path="/Wallet" element={<Wallet />} />
             <Route path="/PitchDeck" element={<PitchDeck />} />
+            <Route path="/More" element={<More />} />
+            <Route path="/Introduction" element={<Introduction />} />
 
           </Routes>
         </div>

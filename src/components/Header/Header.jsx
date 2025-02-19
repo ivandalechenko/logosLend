@@ -37,11 +37,12 @@ const Header = () => {
       </div>
       <div className={`Header_links ${isMobileMenuOpen && 'Header_links_open'}`}>
         <div className='Header__item Header__item-navigation'>
-          <Link className='Header__item-nav' to={"/Welcome"} onClick={() => { setisMobileMenuOpen(false) }}>Introduction</Link>
+          <Link className='Header__item-nav' to={"/Introduction"} onClick={() => { setisMobileMenuOpen(false) }}>Introduction</Link>
           <Link className='Header__item-nav' to={"/Cards"} onClick={() => { setisMobileMenuOpen(false) }}>Visa Card</Link>
           <Link className='Header__item-nav' to={"/Wallet"} onClick={() => { setisMobileMenuOpen(false) }}>Wallet</Link>
           <Link className='Header__item-nav' to={"/Protocols"} onClick={() => { setisMobileMenuOpen(false) }}>Protocols</Link>
           <Link className='Header__item-nav' to={"/PitchDeck"} onClick={() => { setisMobileMenuOpen(false) }}>Pitch deck</Link>
+          <Link className='Header__item-nav' to={"/More"} onClick={() => { setisMobileMenuOpen(false) }}>More</Link>
 
         </div>
       </div>

@@ -1,0 +1,14 @@
+.Introduction{
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    &__title{
+        color: linear-gradient(to bottom, #FFFFFF 0%, #F8F8F8 44%, #999999 100%);
+        width: 100%;
+        text-align: center;
+        font-family: "ClashDisplayMedium";
+        font-size: 62px;
+    }
+}
