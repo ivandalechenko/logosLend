@@ -42,6 +42,7 @@ const Header = () => {
           <Link className='Header__item-nav' to={"/Wallet"} onClick={() => { setisMobileMenuOpen(false) }}>Wallet</Link>
           <Link className='Header__item-nav' to={"/Protocols"} onClick={() => { setisMobileMenuOpen(false) }}>Protocols</Link>
           <Link className='Header__item-nav' to={"/PitchDeck"} onClick={() => { setisMobileMenuOpen(false) }}>Pitch deck</Link>
+          <Link className='Header__item-nav' to={"/Advantages"} onClick={() => { setisMobileMenuOpen(false) }}>Advantages</Link>
           <Link className='Header__item-nav' to={"/More"} onClick={() => { setisMobileMenuOpen(false) }}>More</Link>
 
         </div>
