@@ -1,0 +1,47 @@
+.TXTSubheader,
+.TXTSubheader>span,
+.TXTSubheader>a {
+    font-size: 24px;
+    font-family: "Helvetica";
+
+    background: linear-gradient(to bottom, #FFF, #CCC);
+    font-weight: 900;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media(max-width: 500px) {
+        font-size: 18px;
+    }
+
+    &_w100 {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    &_wide {
+        font-size: 28px;
+    }
+
+    &_small {
+        font-size: 18px;
+
+        @media(max-width: 500px) {
+            font-size: 14px;
+        }
+
+        a,
+        span {
+            font-size: 18px;
+
+            @media(max-width: 500px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    a {
+        text-decoration: underline !important;
+        border-bottom: 2px solid #CCC;
+    }
+}

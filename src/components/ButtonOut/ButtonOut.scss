@@ -1,0 +1,43 @@
+.ButtonOut {
+    font-family: "Helvetica";
+    color: #000;
+    background-color: #fff;
+    border-radius: 32px;
+    padding: 6px;
+    padding-left: 16px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    display: inline-flex;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 200ms, color 200ms;
+
+    @media(max-width: 500px) {
+        padding: 3px;
+        padding-left: 8px;
+        column-gap: 8px;
+        white-space: nowrap;
+    }
+
+    @media(max-width: 500px) {
+        font-size: 12px;
+    }
+
+    img {
+        transition: filter 200ms;
+
+        @media(max-width: 500px) {
+            width: 24px;
+        }
+    }
+
+    &:hover {
+        background-color: #000;
+        color: #fff;
+
+        img {
+            filter: invert(1);
+        }
+    }
+}

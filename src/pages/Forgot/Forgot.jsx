@@ -4,18 +4,29 @@ import InputBlock from '../../components/InputBlock/InputBlock';
 import resetPasswordStore from '../../stores/resetPasswordStore';
 import './Forgot.scss';
 import { observer } from "mobx-react-lite";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import TXTPlain from '../../components/TXTPlain/TXTPlain';
+import TXTHeader from '../../components/TXTHeader/TXTHeader';
+import LargeButton from '../../components/LargeButton/LargeButton';
 
 
 const Forgot = observer(() => {
     const [email, setemail] = useState('');
+    const nav = useNavigate();
+
 
     return (
         <div className='Forgot'>
             <div className='Forgot_balancer'></div>
             <div className='Forgot_content'>
-                <h3 className='Forgot__title'>Reset Password</h3>
-                <p className='Forgot__description'>Type your authorised email address to receive reset password link.</p>
+                <TXTHeader>
+                    Reset Password
+                </TXTHeader>
+                <TXTPlain tac mac>
+                    Type your authorised email address to receive reset password link.
+                </TXTPlain>
+                {/* <p className='Forgot__description'>
+                </p> */}
                 <form action="#" className='Forgot__form' onSubmit={(e) => {
                     e.stopPropagation()
                 }}>
@@ -25,14 +36,17 @@ const Forgot = observer(() => {
                         value={email}
                         setvalue={setemail}
                     />
-                    <Link to={'/Verify'} onClick={() => {
-                        resetPasswordStore.setEmail(email)
-                    }}>Send Reset Password Link</Link>
+                    <LargeButton text='Send Reset Password Link' action={() => { nav('/Verify') }} />
                 </form>
             </div>
 
-            <div className='Forgot__footer'>
-                <a>Contact Support</a>
+
+            <div className='Login__footer'>
+                <TXTPlain small white>
+                    <Link to={'/Register'} >
+                        Contact Support
+                    </Link>
+                </TXTPlain>
             </div>
         </div>
     );

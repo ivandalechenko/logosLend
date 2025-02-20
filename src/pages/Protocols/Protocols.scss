@@ -1,18 +1,18 @@
 .Protocols {
-    padding: 0px 24px;
+    // padding: 0px 24px;
     height: 400vh;
-    padding-top: 100px;
+    padding-top: 0px;
     width: 100%;
 
     @media (max-width: 900px) {
         flex-direction: column;
-        padding: 32px 0px;
+        // padding: 32px 0px;
     }
 
     @media (max-width: 500px) {
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 20px;
+        // padding-left: 24px;
+        // padding-right: 24px;
+        // padding-top: 20px;
     }
 
     &_wrapper {
@@ -28,9 +28,12 @@
         justify-content: center;
         gap: 24px;
 
+        min-height: calc(100vh - 180px);
+        align-items: center;
+
         @media (max-width: 900px) {
             flex-direction: column;
-            padding: 32px 0px;
+            // padding: 32px 0px;
         }
 
         @media(max-height: 750px) {
@@ -46,11 +49,7 @@
         align-items: center;
         align-content: baseline;
         gap: 12px;
-        max-width: 500px;
-
-        @media(min-width: 1930px) {
-            max-width: 600px;
-        }
+        max-width: 800px;
 
         @media (max-width: 900px) {
             order: 2;
@@ -101,7 +100,7 @@
         align-content: baseline;
         flex-wrap: wrap;
         gap: 20px;
-        max-width: 500px;
+        max-width: 560px;
 
         @media (max-width: 900px) {
             order: 1;
@@ -153,7 +152,8 @@
             color: #ACACAC;
             font-size: 15px;
             line-height: 25px;
-            @media(min-width: 1900px){
+
+            @media(min-width: 1900px) {
                 font-size: 25px;
             }
 

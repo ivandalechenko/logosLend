@@ -1,0 +1,39 @@
+.SoloInputBlock {
+    background-color: rgba($color: #fff, $alpha: .05);
+    border-radius: 64px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($color: #fff, $alpha: .2);
+    transition: background-color 200ms, color 200ms;
+
+    input {
+        border: none;
+        background: none;
+        color: #fff;
+        outline: none;
+        padding-left: 16px;
+        font-size: 18px;
+        font-family: "Helvetica";
+
+        @media(max-width: 500px) {
+            font-size: 14px;
+        }
+
+        &::placeholder {
+            color: rgba($color: #fff, $alpha: .6)
+        }
+    }
+
+    &_blurred {
+        background-color: rgba($color: #fff, $alpha: 1);
+
+        input {
+            transition: background-color 200ms, color 200ms;
+            color: #000;
+        }
+    }
+}

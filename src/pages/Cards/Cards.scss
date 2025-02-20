@@ -38,12 +38,21 @@
             pointer-events: none;
 
             &_1 {
-                top: 70px;
-                left: 200px;
+                top: 150px;
+                left: 240px;
                 rotate: 20deg;
 
+                @media(max-width: 600px) {
+                    left: 50px;
+                    top: 50px;
+                }
+
                 img {
-                    width: 250px !important;
+                    width: 350px !important;
+
+                    @media(max-width: 600px) {
+                        width: 300px !important;
+                    }
                 }
             }
 
@@ -51,6 +60,19 @@
                 top: 70px;
                 left: -140px;
                 rotate: -5deg;
+
+                @media(max-width: 600px) {
+                    left: -50px;
+                    top: 150px;
+                }
+
+                img {
+                    width: 500px !important;
+
+                    @media(max-width: 600px) {
+                        width: 300px !important;
+                    }
+                }
             }
 
             &_3 {
@@ -69,12 +91,21 @@
 
             &_4 {
                 z-index: 50;
-                top: 0px;
+                top: 40px;
                 rotate: 20deg;
                 left: 280px;
 
+                @media(max-width: 600px) {
+                    left: 150px;
+                    top: 0px;
+                }
+
                 img {
-                    width: 100px !important;
+                    width: 180px !important;
+
+                    @media(max-width: 600px) {
+                        width: 100px !important;
+                    }
                 }
             }
 
@@ -82,10 +113,18 @@
                 rotate: -15deg;
                 top: 220px;
                 left: -220px;
-                z-index: 3 !important;
+
+                @media(max-width: 600px) {
+                    left: -150px;
+                    top: 50px;
+                }
 
                 img {
-                    width: 100px !important;
+                    width: 200px !important;
+
+                    @media(max-width: 600px) {
+                        width: 100px !important;
+                    }
                 }
             }
 
@@ -144,42 +183,46 @@
     }
 
     &__title {
-        font-family: "ClashDisplayMedium";
-        font-size: 62px;
-        text-align: center;
-        color: white;
+        // font-family: "ClashDisplayMedium";
+        // font-size: 62px;
+        // text-align: center;
+        // color: white;
 
-        @media (max-width: 650px) {
-            max-width: 350px;
-            text-align: center;
-        }
+        // @media (max-width: 650px) {
+        //     max-width: 350px;
+        //     text-align: center;
+        // }
 
-        @media (max-width: 380px) {
-            font-size: 55px;
-        }
+        // @media (max-width: 380px) {
+        //     font-size: 55px;
+        // }
     }
 
     &__description {
-        font-family: "SFPro";
-        font-size: 14px;
-        line-height: 22px;
-        color: #8B8B8B;
-        max-width: 570px;
-        text-align: center;
+        // font-family: "SFPro";
+        // font-size: 14px;
+        // line-height: 22px;
+        // color: #8B8B8B;
+        // max-width: 570px;
+        // text-align: center;
 
-        @media(min-width: 1930px) {
-            font-size: 20px;
-            line-height: 26px;
-        }
+        // @media(min-width: 1930px) {
+        //     font-size: 20px;
+        //     line-height: 26px;
+        // }
 
-        @media (max-width: 650px) {
-            max-width: 350px;
-            text-align: center;
-        }
+        // @media (max-width: 650px) {
+        //     max-width: 350px;
+        //     text-align: center;
+        // }
 
-        @media (max-width: 380px) {
-            font-size: 12px;
-        }
+        // @media (max-width: 380px) {
+        //     font-size: 12px;
+        // }
+    }
+
+    &__inp {
+        margin-top: 16px;
     }
 
     &__join {
@@ -187,25 +230,25 @@
         display: flex;
         column-gap: 12px;
 
-        a,
-        span {
-            font-family: "SFPro";
-            font-size: 13px;
-            display: inline-block;
-        }
+        // a,
+        // span {
+        //     font-family: "SFPro";
+        //     font-size: 13px;
+        //     display: inline-block;
+        // }
 
-        a {
-            text-decoration: underline;
-        }
+        // a {
+        //     text-decoration: underline;
+        // }
 
-        @media(min-width: 1930px) {
+        // @media(min-width: 1930px) {
 
-            a,
-            span {
-                font-size: 18px;
-            }
+        //     a,
+        //     span {
+        //         font-size: 18px;
+        //     }
 
-        }
+        // }
     }
 
     &__container {

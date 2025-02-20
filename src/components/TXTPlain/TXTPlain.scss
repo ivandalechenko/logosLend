@@ -1,0 +1,50 @@
+.TXTPlain,
+.TXTPlain>span,
+.TXTPlain>a {
+    font-family: "SFPro";
+    font-size: 20px;
+    color: #8B8B8B;
+    max-width: 600px;
+
+    @media(max-width: 500px) {
+        font-size: 14px;
+    }
+
+    &_tac {
+        text-align: center;
+    }
+
+    &_mac {
+        margin: 0 auto;
+    }
+
+    &_white {
+        color: #fff;
+
+        a,
+        span {
+            color: #fff;
+        }
+    }
+
+    &_small {
+        font-size: 16px;
+
+        @media(max-width: 500px) {
+            font-size: 12px;
+        }
+
+        a,
+        span {
+            font-size: 16px;
+
+            @media(max-width: 500px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &_inline {
+        display: inline;
+    }
+}

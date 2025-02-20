@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
 import { useState } from 'react';
+import TXTPlain from '../TXTPlain/TXTPlain';
+import TXTSubheader from '../TXTSubheader/TXTSubheader';
 
 const Header = () => {
 
@@ -22,29 +24,69 @@ const Header = () => {
           </div>
           <Link to={'/Welcome'} className='Header__item-logoLink'>
             <img className='Header__item-logoimg' src="./img/logo.svg" alt="" />
-            <p className='Header__item-logo' >logos</p>
+            <TXTSubheader small className='Header__item-logo'>
+              logos
+            </TXTSubheader>
+            <p className='Header__item-logo' >
+            </p>
           </Link>
         </div>
         <div className='Header__item'>
-          <div className='Header__item-ds'>
-            <a href="#"><img src="./img/ds.svg" alt="" /></a>
-            <a href="#" className='Header__item-ds-a'>Join Our Discord</a>
-          </div>
+          <a href="#" className='Header__item-ds'>
+            <img src="./img/ds.svg" alt="" />
+            <TXTSubheader small className={'Header__item-ds-a'}>
+              Join Our Discord
+            </TXTSubheader>
+          </a>
           <Link className='Header__item-id' to={'/Login'} >
-            Connect ID
+            <TXTPlain>
+              <span>Connect</span> ID
+            </TXTPlain>
           </Link>
         </div>
       </div>
       <div className={`Header_links ${isMobileMenuOpen && 'Header_links_open'}`}>
         <div className='Header__item Header__item-navigation'>
-          <Link className='Header__item-nav' to={"/Introduction"} onClick={() => { setisMobileMenuOpen(false) }}>Introduction</Link>
-          <Link className='Header__item-nav' to={"/Cards"} onClick={() => { setisMobileMenuOpen(false) }}>Visa Card</Link>
-          <Link className='Header__item-nav' to={"/Wallet"} onClick={() => { setisMobileMenuOpen(false) }}>Wallet</Link>
-          <Link className='Header__item-nav' to={"/Protocols"} onClick={() => { setisMobileMenuOpen(false) }}>Protocols</Link>
-          <Link className='Header__item-nav' to={"/PitchDeck"} onClick={() => { setisMobileMenuOpen(false) }}>Pitch deck</Link>
-          <Link className='Header__item-nav' to={"/Advantages"} onClick={() => { setisMobileMenuOpen(false) }}>Advantages</Link>
-          <Link className='Header__item-nav' to={"/More"} onClick={() => { setisMobileMenuOpen(false) }}>More</Link>
-
+          {
+            [
+              {
+                name: 'Introduction',
+                to: '/Introduction',
+              },
+              {
+                name: 'Visa Card',
+                to: '/Cards',
+              },
+              {
+                name: 'Wallet',
+                to: '/Wallet',
+              },
+              {
+                name: 'Protocols',
+                to: '/Protocols',
+              },
+              {
+                name: 'Pitch deck',
+                to: '/PitchDeck',
+              },
+              {
+                name: 'Advantages',
+                to: '/Advantages',
+              },
+              {
+                name: 'More',
+                to: '/More',
+              }
+            ].map((hel, index) => {
+              return <TXTPlain key={`headerLink-${index}`} className='Header__item-nav'>
+                <Link
+                  to={hel.to}
+                  onClick={() => { setisMobileMenuOpen(false) }}>
+                  {hel.name}
+                </Link>
+              </TXTPlain>
+            })
+          }
         </div>
       </div>
     </>

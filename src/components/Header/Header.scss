@@ -27,7 +27,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        top: -26px;
+        top: -30px;
         z-index: 99999;
         pointer-events: none;
 
@@ -69,15 +69,15 @@
         pointer-events: all;
 
         &-logo {
-            font-family: "ClashDisplayMedium";
-            font-size: 11px;
-            font-weight: 500;
             text-transform: uppercase;
-            cursor: pointer;
+            // font-family: "ClashDisplayMedium";
+            // font-size: 11px;
+            // font-weight: 500;
+            // cursor: pointer;
 
-            @media(min-width: 1930px) {
-                font-size: 18px;
-            }
+            // @media(min-width: 1930px) {
+            //     font-size: 18px;
+            // }
         }
 
         &-logoimg {
@@ -144,11 +144,8 @@
         }
 
         &-nav {
-            font-family: "SFPro";
-            font-size: 14px;
-            color: #CACFD8;
-            transition: transform 200ms ease-in-out;
             text-shadow: 0px 0px 4px #000;
+            transition: transform 200ms;
 
             @media(max-width: 900px) {
                 width: 100%;
@@ -157,11 +154,12 @@
             @media(min-width: 1930px) {
                 font-size: 24px;
             }
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
 
-        &-nav:hover {
-            transform: scale(1.1);
-        }
 
         &-ds {
             display: flex;
@@ -176,17 +174,17 @@
             }
 
             &-a {
-                font-family: "SFPro";
-                font-size: 12px;
-                font-weight: 500;
+                // font-family: "SFPro";
+                // font-size: 12px;
+                // font-weight: 500;
 
                 @media (max-width: 900px) {
                     display: none !important;
                 }
 
-                @media(min-width: 1930px) {
-                    font-size: 18px;
-                }
+                // @media(min-width: 1930px) {
+                //     font-size: 18px;
+                // }
             }
 
             img {
@@ -200,10 +198,9 @@
 
         &-id {
             background-color: transparent;
-            font-family: "Inter";
+            // font-family: "Inter";
             padding: 7px 20px 7px 20px;
             border-radius: 50px;
-            background: linear-gradient(270deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
             background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 30%, #FFFFFF99 100%);
             background-size: 200% 200%;
@@ -212,17 +209,23 @@
             -webkit-text-fill-color: transparent;
             transition: all 0.3s ease-in-out;
 
-            @media(min-width: 1930px) {
-                font-size: 18px;
+            @media(max-width: 400px) {
+                span {
+                    display: none;
+                }
             }
 
-            @media (max-width: 400px) {
-                font-size: 12px;
-            }
+            // @media(min-width: 1930px) {
+            //     font-size: 18px;
+            // }
+
+            // @media (max-width: 400px) {
+            //     font-size: 12px;
+            // }
 
             &:hover {
-                border-color: rgba(255, 255, 255, 0.4);
                 // transform: scale(1.05);
+                border-color: rgba(255, 255, 255, 0.4);
                 box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
                 background-position: 100% 100%;
             }

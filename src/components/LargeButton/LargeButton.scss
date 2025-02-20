@@ -1,0 +1,36 @@
+.LargeButton {
+    margin-top: 31px;
+    font-family: "ClashDisplay";
+    width: 430px;
+    background-color: #7177FF;
+    font-size: 16px;
+    padding: 14px 0 14px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: background-color 200ms, color 200ms;
+
+    div {
+        transition: background-color 200ms, color 200ms;
+    }
+
+    &:hover {
+        background-color: white;
+        color: black !important;
+
+        div {
+            color: black !important;
+        }
+    }
+
+
+    @media (max-width: 900px) {
+        width: 100%;
+    }
+
+    @media(min-width: 1930px) {
+        font-size: 20px;
+    }
+}

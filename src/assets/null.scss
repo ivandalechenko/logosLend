@@ -121,8 +121,8 @@ button {
 
 input,
 textarea {
-    font-family: 'Montserrat';
     box-sizing: border-box;
+    font-family: "Helvetica";
 }
 
 .free_img {
@@ -146,6 +146,7 @@ html {
 body {
     width: 100vw;
     background: radial-gradient(circle, rgba(94, 93, 135, 0.25) 0%, rgba(36, 35, 59, 0) 61%);
+    background-attachment: fixed;
     min-height: 100vh;
     background-color: #060606;
 }
@@ -161,6 +162,7 @@ body {
         align-items: center;
         align-content: center;
         min-height: calc(100dvh - 88px);
+        padding: 0px 12px;
 
         @media(max-width: 900px) {
             min-height: calc(100dvh - 55px);
@@ -235,6 +237,6 @@ iframe::-webkit-scrollbar-thumb:hover {
 }
 
 // блоки по всей ширине экрана
-.width{
+.width {
     width: 100%;
 }

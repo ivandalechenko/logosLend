@@ -5,6 +5,10 @@ import CardItem from './Cards/CardItem';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import gsap from 'gsap';
+import TXTHeader from '../../components/TXTHeader/TXTHeader';
+import TXTPlain from '../../components/TXTPlain/TXTPlain';
+import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
+import SoloInputBlock from '../../components/SoloInputBlock/SoloInputBlock';
 
 const chels = ['TRUMP', 'PNUT', 'PEPE', 'MUMU', 'POPCAT']
 const chelsX3 = [...chels, ...chels, ...chels]
@@ -29,17 +33,6 @@ export default () => {
                     duration: .5
                 })
             });
-
-            gsap.to(`.Cards__description`, {
-                text: `For the top 100,000 participants in our airdrop campaign, Logos Layer is offering the chance to pre-order a Logos Visa Card. Designed for crypto-native spending, these cards enable seamless payments anywhere Visa is accepted.
-Every transaction has the potential for random rewards, including:
-Rare NFTs from top collections like BAYC and Pudgy Penguins.
-Airdrops of memecoins and Logos tokens.
-Exclusive discounts and bonuses within the Logos ecosystem.
-Users can earn passive rewards simply by using their card for everyday purchases.`,
-                delay: 2,
-                duration: 2
-            })
             gsap.to(`.Cards__join_span`, {
                 text: `Participate in the airdrop today:`,
                 delay: 3,
@@ -88,16 +81,24 @@ Users can earn passive rewards simply by using their card for everyday purchases
         <div className='Cards' ref={app}>
             <div className='Cards_balancer'></div>
             <div className='Cards_content'>
+                <TXTHeader className={'Cards__title'}>
+                    Crypto Debit Cards
+                </TXTHeader>
+                {/* <h3 className='Cards__title'></h3> */}
 
-                <h3 className='Cards__title'>Crypto Debit Cards</h3>
-                <p className='Cards__description'>
-                    We provide a secure, feature-rich platform that simplifies the investment process to onbaord the masses into web3, removing barriers. Our multi-chain transactions process between 100 milliseconds and 5 seconds, ensuring every trade, transfer, and payment happens in real time.
-                </p>
-                <p className='Cards__join'><span className='Cards__join_span'>Join The Waitlist!</span><a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'></a></p>
-                <div className='Cards__container'>
-                    <input type="email" placeholder='Example@gmail.com' />
-                    <button>Sign Up <img src="/img/buttonWhitepapper.svg" alt="" /></button>
-                </div>
+                <TXTPlain tac className={'Cards__description'} >
+                    We provide a secure , feature-rich platform that simplifies the investment process and opens doors to new possibilities in the crypto market
+                </TXTPlain>
+
+                <TXTSubheader className={'Cards__join'} small >
+                    <span className='Cards__join_span'>
+                        Join The Waitlist!
+                    </span>
+                    <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'></a>
+                </TXTSubheader>
+                <SoloInputBlock className={'Cards__inp'} placeholder={'Example@gmail.com'} btnText='Sign Up' />
+
+
             </div>
             <div className='Cards__decor'>
                 <div className='Cards__decor_black' onClick={() => { setshowColoredCards(true) }} style={{

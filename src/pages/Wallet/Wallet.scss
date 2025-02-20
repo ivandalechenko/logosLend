@@ -89,8 +89,10 @@
         align-items: flex-start;
         justify-content: center;
         gap: 20px;
+        padding-top: 60px;
 
         @media (max-width: 900px) {
+            padding-top: 0px;
             align-items: center;
             width: 100%;
         }
@@ -99,29 +101,50 @@
             align-items: flex-start;
         }
 
-        &-title {
-            font-family: "ClashDisplayMedium";
-            font-size: 50px;
-            line-height: 100%;
+        .hdr {
             text-align: left;
-            max-width: 390px;
-            min-height: 300px;
-            display: flex;
-            align-items: end;
 
-            @media(min-width: 1930px) {
-                max-width: 500px;
-            }
-
-            @media (max-width: 900px) {
-                max-width: 100%;
+            @media(max-width: 900px) {
                 text-align: center;
-                min-height: 50px;
             }
+        }
 
-            @media (max-width: 500px) {
-                text-align: left;
+        .desc {
+
+            @media(max-width: 900px) {
+                text-align: center;
             }
+        }
+
+        .btn {
+            @media(max-width: 900px) {
+                margin: 0 auto
+            }
+        }
+
+        &-title {
+            // font-family: "ClashDisplayMedium";
+            // font-size: 50px;
+            // line-height: 100%;
+            // text-align: left;
+            // max-width: 390px;
+            // min-height: 300px;
+            // display: flex;
+            // align-items: end;
+
+            // @media(min-width: 1930px) {
+            //     max-width: 500px;
+            // }
+
+            // @media (max-width: 900px) {
+            //     max-width: 100%;
+            //     text-align: center;
+            //     min-height: 50px;
+            // }
+
+            // @media (max-width: 500px) {
+            //     text-align: left;
+            // }
         }
 
         &-description {

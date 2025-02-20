@@ -4,6 +4,9 @@ import './Wallet.scss';
 import { useGSAP } from '@gsap/react';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import TXTHeader from '../../components/TXTHeader/TXTHeader';
+import TXTPlain from '../../components/TXTPlain/TXTPlain';
+import ButtonOut from '../../components/ButtonOut/ButtonOut';
 
 export default () => {
     // want to swap шоб не свапалось сразуобратно когдатекст будет прыгать
@@ -200,13 +203,17 @@ export default () => {
 
             </div>
             <div className='Wallet__description'>
-                <h3 className='Wallet__description-title hdr'>
+                <TXTHeader className='hdr'>
                     Swap, Trade & Move Liquidity Instantly
-                </h3>
-                <p className='Wallet__description-description desc' >
+                </TXTHeader>
+                {/* <h3 className='Wallet__description-title hdr'>
+                </h3> */}
+                <TXTPlain className={'desc'}>
                     No gas fees. No delays. No limits. Just instant cross-chain swaps, AI-powered trading, and full memecoin support—without the headache of native tokens for gas. Whether you're aping or making serious plays, Logos Wallet functions the way a wallet should. Simple.
-                </p>
-                <button className='Wallet__description-btn' onMouseEnter={swapText} onClick={swapText}><span className='memeChainText'>MemeChain</span> <img src="./img/buttonWhitepapper.svg" alt="" /></button>
+                </TXTPlain>
+                <ButtonOut text={'MemeChain'} className="btn" onMouseEnter={swapText} action={swapText} />
+
+                {/* <button className='Wallet__description-btn' onMouseEnter={swapText} onClick={swapText}><span className='memeChainText'>MemeChain</span> <img src="./img/buttonWhitepapper.svg" alt="" /></button> */}
             </div>
         </div>
     )

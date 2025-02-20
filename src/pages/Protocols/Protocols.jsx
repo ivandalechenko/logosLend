@@ -5,6 +5,10 @@ import './Protocols.scss';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import gsap from 'gsap';
+import TXTHeader from '../../components/TXTHeader/TXTHeader';
+import TXTPlain from '../../components/TXTPlain/TXTPlain';
+import ButtonOut from '../../components/ButtonOut/ButtonOut';
+import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
 
 export default () => {
 
@@ -120,30 +124,36 @@ export default () => {
                     <div className='Protocols__description'>
 
                         <div className={`Description`} key={`element_desc_vorovskoy`}>
-                            <div className='Description__light'>
-                                <img src='/img/descriptionLogo.svg' alt="" />
-                                <div className='Description__container'>
-                                    <h3 className={`Description__title Description__title_1`}>Zero Gas Fees</h3>
-                                    <p className={`Description__description Description__description_1`}>Forget about gas fees eating into your profits. Liquid Layer removes transaction fees, allowing traders to move assets without paying network costs. This means more frequent trades, better arbitrage opportunities, and a level playing field for all users.</p>
-                                </div>
+                            <img src='/img/descriptionLogo.svg' alt="" />
+                            <div className='Description__container'>
+                                <TXTSubheader className={'Description__title_1'}>
+                                    Zero Gas Fees
+                                </TXTSubheader>
+                                <TXTPlain small className={'Description__description_1'}>
+                                    Forget about gas fees eating into your profits. Liquid Layer removes transaction fees, allowing traders to move assets without paying network costs. This means more frequent trades, better arbitrage opportunities, and a level playing field for all users.
+                                </TXTPlain>
                             </div>
                         </div>
                         <div className={`Description`} key={`element_desc_vorovskoy`}>
-                            <div className='Description__light'>
-                                <img src='/img/descriptionLogo.svg' alt="" />
-                                <div className='Description__container'>
-                                    <h3 className={`Description__title Description__title_2`}>Universal Chain Connectivity</h3>
-                                    <p className={`Description__description Description__description_2`}>Liquid Layer makes multi-chain trading seamless, enabling effortless transfers across Ethereum, Bitcoin, Solana, and more—no network switching, wrapping, or complex swaps needed.</p>
-                                </div>
+                            <img src='/img/descriptionLogo.svg' alt="" />
+                            <div className='Description__container'>
+                                <TXTSubheader className={'Description__title_2'}>
+                                    Universal Chain Connectivity
+                                </TXTSubheader>
+                                <TXTPlain small className={'Description__description_2'}>
+                                    Liquid Layer makes multi-chain trading seamless, enabling effortless transfers across Ethereum, Bitcoin, Solana, and more—no network switching, wrapping, or complex swaps needed.
+                                </TXTPlain>
                             </div>
                         </div>
                         <div className={`Description`} key={`element_desc_vorovskoy`}>
-                            <div className='Description__light'>
-                                <img src='/img/descriptionLogo.svg' alt="" />
-                                <div className='Description__container'>
-                                    <h3 className={`Description__title Description__title_3`}>Advanced Security</h3>
-                                    <p className={`Description__description Description__description_3`}>Security isn`t an afterthought—it`s built into the foundation of Liquid Layer. Using advanced encryption, real-time monitoring, and the COMET BFT consensus mechanism, transactions are secured at every level, ensuring stability and protection against threats.</p>
-                                </div>
+                            <img src='/img/descriptionLogo.svg' alt="" />
+                            <div className='Description__container'>
+                                <TXTSubheader className={'Description__title_3'}>
+                                    Advanced Security
+                                </TXTSubheader>
+                                <TXTPlain small className={'Description__description_3'}>
+                                    Security isn`t an afterthought—it`s built into the foundation of Liquid Layer. Using advanced encryption, real-time monitoring, and the COMET BFT consensus mechanism, transactions are secured at every level, ensuring stability and protection against threats.
+                                </TXTPlain>
                             </div>
                         </div>
 
@@ -159,9 +169,18 @@ export default () => {
                         ))}
                     </div>
                     <div className='Protocols__feauteres'>
-                        <h3 className='Protocols__feauteres-title'>Seamless <br /> Protocol Features</h3>
-                        <p className='Protocols__feauteres-description'>Liquid Layer enables seamless multi-chain trading with zero gas fees, unified liquidity, and top-tier security. Integrated with major exchanges and AI-powered tools, it offers a smooth, efficient, and eco-friendly Web3 experience.</p>
-                        <button className='Protocols__feauteres-btn'>Whitepaper <img src="./img/buttonWhitepapper.svg" alt="" /></button>
+                        <TXTHeader left>
+                            Seamless Protocol Features
+                        </TXTHeader>
+                        {/* <h3 className='Protocols__feauteres-title'>
+                            </h3> */}
+                        <TXTPlain>
+                            Liquid Layer enables seamless multi-chain trading with zero gas fees, unified liquidity, and top-tier security. Integrated with major exchanges and AI-powered tools, it offers a smooth, efficient, and eco-friendly Web3 experience.
+                        </TXTPlain>
+                        {/* <p className='Protocols__feauteres-description'>
+                            </p> */}
+                        <ButtonOut text={'Whitepaper'} />
+                        {/* <button className='Protocols__feauteres-btn'>Whitepaper <img src="./img/buttonWhitepapper.svg" alt="" /></button> */}
                     </div>
                 </div>
 

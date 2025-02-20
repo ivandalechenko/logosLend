@@ -3,6 +3,11 @@ import './Introduction.scss';
 import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import gsap from 'gsap';
+import TXTHeader from '../../components/TXTHeader/TXTHeader';
+import TXTPlain from '../../components/TXTPlain/TXTPlain';
+import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
+import ButtonOut from '../../components/ButtonOut/ButtonOut';
+import SoloInputBlock from '../../components/SoloInputBlock/SoloInputBlock';
 
 export default () => {
 
@@ -32,7 +37,7 @@ export default () => {
                 scrollTrigger: {
                     scrub: 1,
                     trigger: '.Introduction_block_large',
-                    markers: true,
+                    // markers: true,
                     start: "top top", // Фиксируем при достижении верха
                     end: "bottom bottom", // Разрешаем выход при конце секции
                 }
@@ -49,19 +54,20 @@ export default () => {
     return (
         <div className='Introduction' ref={app}>
             <div className='Introduction_block'>
-                <h2 className='Introduction__title'>
+                <TXTHeader>
                     Logos Vault
-                </h2>
-                <p className='Introduction__description'>
+                </TXTHeader>
+                <TXTPlain tac mac style={{
+                    maxWidth: '700px'
+                }}>
                     The Logos Vault provides institutional-grade cold storage for tokens, NFTs, and partnered assets while enabling staking directly from cold storage. Users can turn any SD card into a hardware wallet with Decentralized HSM encryption, while Liquid ID and Secure Enclave Vaults protect transactions and private keys.
-                </p>
+                </TXTPlain>
+
                 <div className='Introduction__join'>
-                    <p className='Introduction__join-title'>Join The Waitlist!</p>
-                    {/* <button>Example@gmail.com <img src="/img/buttonWhitepapper.svg" alt="" /></button> */}
-                    <div className='Introduction__join-input'>
-                        <input type="email" placeholder='Example@gmail.com' />
-                        <button>Sign Up <img src="/img/buttonWhitepapper.svg" alt="" /></button>
-                    </div>
+                    <TXTSubheader w100>
+                        Join The Waitlist!
+                    </TXTSubheader>
+                    <SoloInputBlock placeholder='Example@gmail.com' btnText='Sign Up' />
                 </div>
                 <div className='Introduction__decor'>
                     <img src="./meow.svg" alt="" />
@@ -70,12 +76,14 @@ export default () => {
             <div className='Introduction_block_large'>
 
                 <div className='Introduction_block Introduction_block_2'>
-                    <h2 className='Introduction__title'>
+                    <TXTHeader>
                         Roadmap
-                    </h2>
-                    <p className='Introduction__description'>
+                    </TXTHeader>
+                    <TXTPlain tac mac style={{
+                        maxWidth: '700px'
+                    }}>
                         The Logos Vault provides institutional-grade cold storage for tokens, NFTs, and partnered assets while enabling staking directly from cold storage. Users can turn any SD card into a hardware wallet with Decentralized HSM encryption, while Liquid ID and Secure Enclave Vaults protect transactions and private keys.
-                    </p>
+                    </TXTPlain>
                     <div className='Introduction_roadmap_list' ref={glist}>
                         {
                             [
@@ -114,18 +122,21 @@ export default () => {
                             ].map((rel, index) => {
                                 return <div className='Introduction_roadmap_element'>
                                     <div className='Introduction_roadmap_element_num'>
-                                        0{index + 1}
+                                        <TXTSubheader wide>
+                                            0{index + 1}
+                                        </TXTSubheader>
                                     </div>
                                     <div className='Introduction_roadmap_element_arrow'>
                                         <img src="/arrowInRound.svg" alt="" />
                                     </div>
                                     <div className='Introduction_roadmap_element_info'>
-                                        <div className='Introduction_roadmap_element_time'>
+                                        <TXTPlain tac>
                                             {rel.date}
-                                        </div>
-                                        <div className='Introduction_roadmap_element_event'>
+                                        </TXTPlain>
+
+                                        <TXTSubheader w100>
                                             {rel.type}
-                                        </div>
+                                        </TXTSubheader>
                                     </div>
                                 </div>
                             })

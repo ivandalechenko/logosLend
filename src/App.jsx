@@ -36,13 +36,11 @@ export default observer(() => {
             <Route path="/" element={<Welcome />} />
             <Route path="/Welcome" element={<Welcome />} />
 
-
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Forgot" element={<Forgot />} />
             <Route path="/Verify" element={<Verify />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-
 
             <Route path="/Protocols" element={<Protocols />} />
             <Route path="/Cards" element={<Cards />} />

@@ -3,7 +3,11 @@
 
     &__decor {
         img {
-            max-height: 50vh;
+            max-height: 400px;
+
+            @media(max-width: 800px) {
+                max-height: 200px;
+            }
         }
     }
 
@@ -28,7 +32,7 @@
             }
 
             &:not(:last-child) {
-                border-right: 1px solid white;
+                border-right: 2px solid #fff4;
             }
 
             &_num {
@@ -78,7 +82,7 @@
         align-items: center;
         align-content: center;
         min-height: 100vh;
-        padding: 30px 12px;
+        padding: 30px 0px;
 
         &_large {
             height: 200vh;
@@ -120,103 +124,103 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
+        // align-items: center;
         gap: 15px;
 
-        &-title {
-            width: 100%;
-            text-align: center;
-            font-family: "SFPro";
-            font-size: 13px;
+        // &-title {
+        //     width: 100%;
+        //     text-align: center;
+        //     font-family: "SFPro";
+        //     font-size: 13px;
 
-            @media(min-width: 1900px) {
-                font-size: 24px;
-            }
-        }
+        //     @media(min-width: 1900px) {
+        //         font-size: 24px;
+        //     }
+        // }
 
-        &-input {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        // &-input {
+        //     width: 100%;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     flex-direction: column;
 
-            input {
-                backdrop-filter: blur(10px);
-                outline: none;
-                border: 1px solid rgba($color: #FFFFFF, $alpha: .2);
-                background-color: rgba($color: #D9D9D9, $alpha: .02);
-                width: 300px;
-                height: 43px;
-                border-radius: 57px;
-                padding: 14px 0px 14px 21px;
-                color: white;
-                font-family: "Helvetica";
-                font-size: 12px;
+        //     input {
+        //         backdrop-filter: blur(10px);
+        //         outline: none;
+        //         border: 1px solid rgba($color: #FFFFFF, $alpha: .2);
+        //         background-color: rgba($color: #D9D9D9, $alpha: .02);
+        //         width: 300px;
+        //         height: 43px;
+        //         border-radius: 57px;
+        //         padding: 14px 0px 14px 21px;
+        //         color: white;
+        //         font-family: "Helvetica";
+        //         font-size: 12px;
 
-                @media(min-width: 1900px) {
-                    width: 500px;
-                    height: 70px;
-                    font-size: 22px;
-                }
+        //         @media(min-width: 1900px) {
+        //             width: 500px;
+        //             height: 70px;
+        //             font-size: 22px;
+        //         }
 
-                &::placeholder {
-                    color: white;
-                    font-family: "Helvetica";
-                    font-size: 12px;
+        //         &::placeholder {
+        //             color: white;
+        //             font-family: "Helvetica";
+        //             font-size: 12px;
 
-                    @media(min-width: 1900px) {
-                        font-size: 22px;
-                    }
-                }
-            }
+        //             @media(min-width: 1900px) {
+        //                 font-size: 22px;
+        //             }
+        //         }
+        //     }
 
-            button {
-                position: relative;
-                width: 82px;
-                height: 28px;
-                border-radius: 113px;
-                color: black;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-size: 9px;
-                font-family: "Helvetica";
-                padding-left: 10px;
-                padding-right: 10px;
-                transition: all 300ms ease-in-out;
-                bottom: 36px;
-                left: 100px;
+        //     button {
+        //         position: relative;
+        //         width: 82px;
+        //         height: 28px;
+        //         border-radius: 113px;
+        //         color: black;
+        //         display: flex;
+        //         justify-content: space-between;
+        //         align-items: center;
+        //         font-size: 9px;
+        //         font-family: "Helvetica";
+        //         padding-left: 10px;
+        //         padding-right: 10px;
+        //         transition: all 300ms ease-in-out;
+        //         bottom: 36px;
+        //         left: 100px;
 
-                @media(min-width: 1900px) {
-                    bottom: 55px;
-                    left: 180px;
-                    width: 100px;
-                    height: 40px;
-                    font-size: 12px;
-                }
+        //         @media(min-width: 1900px) {
+        //             bottom: 55px;
+        //             left: 180px;
+        //             width: 100px;
+        //             height: 40px;
+        //             font-size: 12px;
+        //         }
 
-                img {
-                    width: 22px;
-                    height: 22px;
-                    transition: filter 300ms;
+        //         img {
+        //             width: 22px;
+        //             height: 22px;
+        //             transition: filter 300ms;
 
-                    @media(min-width: 1900px) {
-                        width: 35px;
-                        height: 35px;
-                    }
-                }
+        //             @media(min-width: 1900px) {
+        //                 width: 35px;
+        //                 height: 35px;
+        //             }
+        //         }
 
-                &:hover {
-                    color: white;
-                    background-color: black;
+        //         &:hover {
+        //             color: white;
+        //             background-color: black;
 
-                    img {
-                        filter: invert(1);
-                    }
-                }
-            }
-        }
+        //             img {
+        //                 filter: invert(1);
+        //             }
+        //         }
+        //     }
+        // }
     }
 }

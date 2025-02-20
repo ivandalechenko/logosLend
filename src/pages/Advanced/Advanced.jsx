@@ -1,3 +1,4 @@
+import TXTHeader from '../../components/TXTHeader/TXTHeader';
 import './Advanced.scss';
 import AdvancedItem from './AdvancedItem/AdvancedItem';
 
@@ -24,18 +25,23 @@ const advancedItems = [
     }
 ];
 
-export default () => {return (
-    <div className='Advanced'>
-        <h2 className='Advanced__title'>Logos Advanced Trading</h2>
-        <div className='Advanced__block'>
-            {advancedItems.map((item, index) => (
-                <AdvancedItem
-                    key={index}
-                    imgsrc={item.imgsrc}
-                    title={item.title}
-                    description={item.description}
-                />
-            ))}
+export default () => {
+    return (
+        <div className='Advanced'>
+
+            <TXTHeader className='Advanced__title' left>
+                Logos Advanced Trading
+            </TXTHeader>
+            <div className='Advanced__block'>
+                {advancedItems.map((item, index) => (
+                    <AdvancedItem
+                        key={index}
+                        imgsrc={item.imgsrc}
+                        title={item.title}
+                        description={item.description}
+                    />
+                ))}
+            </div>
         </div>
-    </div>
-)}
+    )
+}

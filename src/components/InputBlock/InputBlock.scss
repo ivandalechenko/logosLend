@@ -23,7 +23,7 @@
         border: 1px solid #D9D9D988;
         border-radius: 3px;
         font-family: "ClashDisplay";
-        font-size: 14px;
+        font-size: 18px;
         color: white;
         padding-left: 20px;
         outline: none;
@@ -31,9 +31,9 @@
         font-weight: 300;
         letter-spacing: 3%;
 
-        @media(min-width: 1930px) {
-            font-size: 20px;
-        }
+        // @media(min-width: 1930px) {
+        //     font-size: 20px;
+        // }
 
         &:focus {
             background-color: #fff;
@@ -61,8 +61,8 @@
         background-color: transparent;
 
         img {
-            width: 14px;
-            height: 12px;
+            width: 20px;
+            height: 20px;
         }
 
         @media (max-width: 450px) {

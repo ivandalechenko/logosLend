@@ -3,12 +3,17 @@ import { observer } from "mobx-react-lite";
 import inputStore from "../../stores/inputStore";
 import "./Verify.scss";
 import resetPasswordStore from "../../stores/resetPasswordStore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import TXTHeader from "../../components/TXTHeader/TXTHeader";
+import TXTPlain from "../../components/TXTPlain/TXTPlain";
+import LargeButton from "../../components/LargeButton/LargeButton";
 
 const DisplayInput = observer(() => {
     const length = 6;
     const [values, setValues] = useState(Array(length).fill(""));
     const inputsRef = useRef([]);
+    const nav = useNavigate();
+
 
     const handleChange = (index, e) => {
         const newValues = [...values];
@@ -39,10 +44,14 @@ const DisplayInput = observer(() => {
         <div className="Verify">
             <div className="Verify_balancer"></div>
             <div className="Verify_content">
-                <h3 className="Verify__title">Verify Code</h3>
-                <p className="Verify__description">
+                <TXTHeader>
+                    Verify Code
+                </TXTHeader>
+                {/* <h3 className="Verify__title"> */}
+                {/* </h3> */}
+                <TXTPlain>
                     Enter the passcode you just received on your email address {resetPasswordStore.email}
-                </p>
+                </TXTPlain>
                 <form action="#" className="Verify__form" onSubmit={(e) => {
                     e.stopPropagation()
                 }}>
@@ -60,11 +69,15 @@ const DisplayInput = observer(() => {
                             />
                         ))}
                     </div>
-                    <Link to={"/PasswordReset"}>Confirm Changes</Link>
+                    <LargeButton text='Confirm Changes' action={() => { nav('/PasswordReset') }} />
                 </form>
             </div>
-            <div className='Verify__footer'>
-                <a>Contact Support</a>
+            <div className='Login__footer'>
+                <TXTPlain small white>
+                    <Link to={'/Register'} >
+                        Contact Support
+                    </Link>
+                </TXTPlain>
             </div>
         </div>
     );
