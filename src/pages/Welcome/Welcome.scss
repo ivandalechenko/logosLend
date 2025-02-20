@@ -100,10 +100,15 @@
         &_item {
             cursor: pointer;
 
+            // backdrop-filter: blur(10px);
+
             img {
                 width: 100px;
                 opacity: .7;
                 transition: filter 200ms, opacity 200ms, scale 200ms;
+
+                backdrop-filter: blur(100px);
+                border-radius: 90px;
 
                 @media(min-width: 1930px) {
                     width: 140px;

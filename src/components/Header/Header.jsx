@@ -54,24 +54,29 @@ const Header = () => {
                 to: '/Introduction',
               },
               {
-                name: 'Visa Card',
-                to: '/Cards',
-              },
-              {
-                name: 'Wallet',
-                to: '/Wallet',
-              },
-              {
-                name: 'Protocols',
-                to: '/Protocols',
+                name: 'Whitepaper',
+                to: 'https://whitepaper.logoslayer.com/',
+                tb: true
               },
               {
                 name: 'Pitch deck',
                 to: '/PitchDeck',
               },
               {
-                name: 'Advantages',
-                to: '/Advantages',
+                name: 'Wallet',
+                to: '/Wallet',
+              },
+              {
+                name: 'Visa Card',
+                to: '/Cards',
+              },
+              {
+                name: 'Protocols',
+                to: '/Protocols',
+              },
+              {
+                name: 'Roadmap',
+                to: '/Roadmap',
               },
               {
                 name: 'More',
@@ -80,6 +85,7 @@ const Header = () => {
             ].map((hel, index) => {
               return <TXTPlain key={`headerLink-${index}`} className='Header__item-nav'>
                 <Link
+                  target={`${hel.tb ? '_blank' : '_self'}`}
                   to={hel.to}
                   onClick={() => { setisMobileMenuOpen(false) }}>
                   {hel.name}

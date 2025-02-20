@@ -15,7 +15,7 @@
         height: 59px;
     }
 
-    @media(max-width: 900px) {
+    @media(max-width: 1150px) {
         height: 55px;
         padding: 0px 20px;
         padding-top: 20px;
@@ -31,7 +31,11 @@
         z-index: 99999;
         pointer-events: none;
 
-        @media(max-width: 900px) {
+        @media(max-width: 1500px) {
+            left: -100px;
+        }
+
+        @media(max-width: 1150px) {
             z-index: 997;
             position: fixed;
             min-height: 100vh;
@@ -51,13 +55,13 @@
         }
 
         &_open {
-            @media(max-width: 900px) {
+            @media(max-width: 1150px) {
                 transform: translate(0vw, 0px);
             }
         }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1150px) {
         margin-top: 0px;
     }
 
@@ -67,6 +71,7 @@
         align-items: center;
         gap: 24px;
         pointer-events: all;
+
 
         &-logo {
             text-transform: uppercase;
@@ -99,7 +104,13 @@
         &-navigation {
             gap: 30px;
 
-            @media(max-width: 900px) {
+
+
+            @media(max-width: 1300px) {
+                gap: 12px;
+            }
+
+            @media(max-width: 1150px) {
                 flex-wrap: wrap;
             }
         }
@@ -107,7 +118,7 @@
         &-burger {
             display: none;
 
-            @media (max-width: 900px) {
+            @media (max-width: 1150px) {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -147,7 +158,7 @@
             text-shadow: 0px 0px 4px #000;
             transition: transform 200ms;
 
-            @media(max-width: 900px) {
+            @media(max-width: 1150px) {
                 width: 100%;
             }
 
@@ -178,7 +189,7 @@
                 // font-size: 12px;
                 // font-weight: 500;
 
-                @media (max-width: 900px) {
+                @media (max-width: 1150px) {
                     display: none !important;
                 }
 

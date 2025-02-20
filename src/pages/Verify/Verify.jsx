@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import inputStore from "../../stores/inputStore";
 import "./Verify.scss";
@@ -7,6 +7,9 @@ import { Link, useNavigate } from "react-router-dom";
 import TXTHeader from "../../components/TXTHeader/TXTHeader";
 import TXTPlain from "../../components/TXTPlain/TXTPlain";
 import LargeButton from "../../components/LargeButton/LargeButton";
+import loadingStore from "../../loadingStore";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const DisplayInput = observer(() => {
     const length = 6;
@@ -33,12 +36,101 @@ const DisplayInput = observer(() => {
         }
     };
 
-    // const maskEmail = (email) => {
-    //     const atIndex = email.indexOf("@");
-    //     if (atIndex <= 2) return email;
-    //     const visiblePart = email.slice(atIndex - 2);
-    //     return "*".repeat(atIndex - 2) + visiblePart;
-    // };
+    const selectedEmail = localStorage.getItem('RegEmail')
+
+    const [resendTimer, setresendTimer] = useState(0);
+    let resendTimerInt = 0
+
+    useEffect(() => {
+        resendTimerInt = setInterval(() => {
+            setresendTimer(prev => prev - 1)
+        }, 1000);
+        return () => {
+            clearInterval(resendTimerInt)
+        }
+    }, [])
+
+    const resendCode = async () => {
+        if (resendTimer <= 0) {
+            setresendTimer(60)
+            loadingStore.setLoading(true)
+            try {
+                const { data } = await axios.post(
+                    "https://api.liqchain.com/auth/initiate-email-verification",
+                    {
+                        email: selectedEmail,
+                    },
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Partner-Id': '9xhqYfMc3d6CghNPmPKoXkN8c'
+                        }
+                    });
+                console.log(data);
+                console.log('resend');
+                toast.success('Code resent');
+            } catch (error) {
+                toast.warn('Something went wrong, please try later');
+                console.log(error);
+            } finally {
+                loadingStore.setLoading(false)
+            }
+        }
+    }
+
+
+    const sendCode = async () => {
+        const code = values.join('')
+
+        loadingStore.setLoading(true)
+        try {
+            const { data } = await axios.post(
+                "https://api.liqchain.com/auth/verify-email",
+                {
+                    email: selectedEmail,
+                    code: code,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Partner-Id': '9xhqYfMc3d6CghNPmPKoXkN8c'
+                    }
+                });
+            console.log(data);
+            if (data.emailVerified) {
+                toast.success('Email successfully verified!');
+                nav('/Welcome')
+            } else {
+                toast.warning('Invalid code!');
+            }
+        } catch (error) {
+            toast.warn('Something went wrong, please try later');
+            console.log(error);
+        } finally {
+            loadingStore.setLoading(false)
+        }
+    }
+
+    const handlePaste = (e) => {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData("Text").slice(0, 6);
+        const pasteValues = pasteData.split("");
+        const newValues = [...values];
+
+        pasteValues.forEach((char, idx) => {
+            if (idx < newValues.length) {
+                newValues[idx] = char;
+            }
+        });
+
+        setValues(newValues);
+
+        // Фокус на последний заполненный инпут
+        const nextIndex = pasteValues.length < 6 ? pasteValues.length : 5;
+        inputsRef.current[nextIndex].focus();
+    };
+
+
 
     return (
         <div className="Verify">
@@ -47,10 +139,8 @@ const DisplayInput = observer(() => {
                 <TXTHeader>
                     Verify Code
                 </TXTHeader>
-                {/* <h3 className="Verify__title"> */}
-                {/* </h3> */}
-                <TXTPlain>
-                    Enter the passcode you just received on your email address {resetPasswordStore.email}
+                <TXTPlain tac>
+                    Enter the passcode you just received on your email address {selectedEmail}
                 </TXTPlain>
                 <form action="#" className="Verify__form" onSubmit={(e) => {
                     e.stopPropagation()
@@ -66,10 +156,12 @@ const DisplayInput = observer(() => {
                                 onChange={(e) => handleChange(index, e)}
                                 onKeyDown={(e) => handleKeyDown(index, e)}
                                 className="Verify__input"
+                                onPaste={handlePaste}
                             />
                         ))}
                     </div>
-                    <LargeButton text='Confirm Changes' action={() => { nav('/PasswordReset') }} />
+                    <LargeButton text='Confirm Code' action={sendCode} />
+                    <LargeButton text={resendTimer <= 0 ? `Resend Code` : `${resendTimer} sec. to resend`} nm action={resendCode} />
                 </form>
             </div>
             <div className='Login__footer'>

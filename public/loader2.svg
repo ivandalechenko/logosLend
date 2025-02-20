@@ -1,0 +1,26 @@
+<svg width="499" height="479" viewBox="-100 -100 680 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+
+#img{
+    transform-origin: 250px 250px;
+        animation: 1s spin-scale infinite alternate cubic-bezier(.8,0,.2,1);
+}
+
+    @keyframes spin-scale {
+        0% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        100% {
+            transform: scale(.7) rotate(360deg);
+        }
+    }
+
+
+</style>
+<g id='img'>
+<path d="M234.265 478.092C104.884 478.092 -0.000320435 373.208 -0.000320435 243.827V0.000579834H158.368V283.031C158.368 316.169 185.23 343.031 218.368 343.031H234.265V478.092Z" fill="#D4D4D4"/>
+<path d="M264.738 0C394.119 0 499.003 104.884 499.003 234.265V478.092H340.635V195.061C340.635 161.924 313.772 135.061 280.635 135.061H264.738V0Z" fill="#D4D4D4"/>
+</g>
+
+</svg>

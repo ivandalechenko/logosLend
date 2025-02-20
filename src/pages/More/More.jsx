@@ -7,6 +7,9 @@ import TXTHeader from '../../components/TXTHeader/TXTHeader';
 import TXTPlain from '../../components/TXTPlain/TXTPlain';
 import ButtonOut from '../../components/ButtonOut/ButtonOut';
 import { useGSAP } from '@gsap/react';
+import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
+import SoloInputBlock from '../../components/SoloInputBlock/SoloInputBlock';
+import Advanced from '../Advanced/Advanced';
 
 const moreData = [
     { imgsrc: './swords.svg', title: 'Memecoin Plushies', description: 'Plushy machines connect users to Web3, boosting memecoin culture. Partnered with J Corp and Pudgy Penguins. Coming to TikTok & Walmart.' },
@@ -58,6 +61,26 @@ export default () => {
 
     return (
         <div className='More' ref={app}>
+            <div className='Introduction_block'>
+                <TXTHeader>
+                    Logos Vault
+                </TXTHeader>
+                <TXTPlain tac mac style={{
+                    maxWidth: '700px'
+                }}>
+                    The Logos Vault provides institutional-grade cold storage for tokens, NFTs, and partnered assets while enabling staking directly from cold storage. Users can turn any SD card into a hardware wallet with Decentralized HSM encryption, while Liquid ID and Secure Enclave Vaults protect transactions and private keys.
+                </TXTPlain>
+
+                <div className='Introduction__join'>
+                    <TXTSubheader w100>
+                        Join The Waitlist!
+                    </TXTSubheader>
+                    <SoloInputBlock placeholder='Example@gmail.com' btnText='Sign Up' />
+                </div>
+                <div className='Introduction__decor'>
+                    <img src="./meow.svg" alt="" />
+                </div>
+            </div>
             <div className='More_pepe free_img'>
                 <img src="/pepe.png" ref={imgRef2} alt="" />
             </div>
@@ -90,6 +113,7 @@ export default () => {
                     <img src="./phone/cat.png" alt="" ref={imgRef} />
                 </div>
             </div>
+            <Advanced />
         </div>
     )
 }
