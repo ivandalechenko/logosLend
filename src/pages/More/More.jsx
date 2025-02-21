@@ -1,7 +1,7 @@
 import './More.scss';
 import MoreBlock from './MoreBlock/MoreBlock';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TXTHeader from '../../components/TXTHeader/TXTHeader';
 import TXTPlain from '../../components/TXTPlain/TXTPlain';
@@ -25,6 +25,42 @@ export default () => {
     const app = useRef(null)
     const imgRef = useRef(null);
     const imgRef2 = useRef(null);
+    const [activeSection, setActiveSection] = useState(0);
+
+    // Add sections for tracking
+    const sections = [
+        'introduction',
+        'memechain',
+        'advanced'
+    ];
+
+    const handleDotClick = (index) => {
+        const element = document.getElementById(sections[index]);
+        element?.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(index);
+    };
+
+    // Add scroll event listener to update active section
+    useEffect(() => {
+        const handleScroll = () => {
+            const sectionElements = sections.map(section =>
+                document.getElementById(section)
+            );
+
+            const currentSection = sectionElements.findIndex(element => {
+                if (!element) return false;
+                const rect = element.getBoundingClientRect();
+                return rect.top <= 100 && rect.bottom >= 100;
+            });
+
+            if (currentSection !== -1) {
+                setActiveSection(currentSection);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useGSAP(
         () => {
@@ -61,7 +97,16 @@ export default () => {
 
     return (
         <div className='More' ref={app}>
-            <div className='Introduction_block'>
+            <div className='dots-navigation'>
+                {sections.map((_, index) => (
+                    <div
+                        key={index}
+                        className={`dot ${activeSection === index ? 'active' : ''}`}
+                        onClick={() => handleDotClick(index)}
+                    />
+                ))}
+            </div>
+            <div className='Introduction_block' id="introduction">
                 <TXTHeader>
                     Logos Vault
                 </TXTHeader>
@@ -84,7 +129,7 @@ export default () => {
             <div className='More_pepe free_img'>
                 <img src="/pepe.png" ref={imgRef2} alt="" />
             </div>
-            <div className='More__wrapper'>
+            <div className='More__wrapper' id="memechain">
                 <TXTHeader>
                     Memechain
                 </TXTHeader>
@@ -113,7 +158,9 @@ export default () => {
                     <img src="./phone/cat.png" alt="" ref={imgRef} />
                 </div>
             </div>
-            <Advanced />
+            <div id="advanced">
+                <Advanced />
+            </div>
         </div>
     )
 }

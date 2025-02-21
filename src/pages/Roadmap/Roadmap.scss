@@ -1,6 +1,28 @@
 .Roadmap {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow-x: hidden;
+    
+    .Introduction_block {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .Introduction_roadmap_list {
+        display: flex;
+        gap: 40px;
+        padding: 40px 0;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow-x: auto;
+        -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
+        scrollbar-width: none;  /* Hide scrollbar Firefox */
+        
+        &::-webkit-scrollbar {
+            display: none;  /* Hide scrollbar Chrome, Safari and Opera */
+        }
+        
+        .Introduction_roadmap_element {
+            flex-shrink: 0;  /* Prevent items from shrinking */
+        }
+    }
 }

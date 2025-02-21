@@ -79,68 +79,70 @@ export default () => {
         { scope: app }
     )
     return (
-        <div className='Cards' ref={app}>
-            <div className='Cards_balancer'></div>
-            <div className='Cards_content'>
-                <TXTHeader className={'Cards__title'}>
-                    Crypto Debit Cards
-                </TXTHeader>
-                {/* <h3 className='Cards__title'></h3> */}
+        <div className="cards-container">
+            <div className='Cards' ref={app}>
+                <div className='Cards_balancer'></div>
+                <div className='Cards_content'>
+                    <TXTHeader className={'Cards__title'}>
+                        Crypto Debit Cards
+                    </TXTHeader>
+                    {/* <h3 className='Cards__title'></h3> */}
 
-                <TXTPlain tac className={'Cards__description'} >
-                    We provide a secure , feature-rich platform that simplifies the investment process and opens doors to new possibilities in the crypto market
-                </TXTPlain>
+                    <TXTPlain tac className={'Cards__description'} >
+                        We provide a secure , feature-rich platform that simplifies the investment process and opens doors to new possibilities in the crypto market
+                    </TXTPlain>
 
-                <TXTSubheader className={'Cards__join'} small >
-                    <span className='Cards__join_span'>
-                        Join The Waitlist!
-                    </span>
-                    <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'></a>
-                </TXTSubheader>
-                <SoloInputBlock className={'Cards__inp'} placeholder={'Example@gmail.com'} btnText='Sign Up' />
+                    <TXTSubheader className={'Cards__join'} small >
+                        <span className='Cards__join_span'>
+                            Join The Waitlist!
+                        </span>
+                        <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'></a>
+                    </TXTSubheader>
+                    <SoloInputBlock className={'Cards__inp'} placeholder={'Example@gmail.com'} btnText='Sign Up' />
 
 
-            </div>
-            <div className='Cards__decor'>
-                <div className='Cards__decor_black' onClick={() => { setshowColoredCards(false) }} style={{
-                    opacity: showColoredCards ? 0 : 1,
-                    pointerEvents: !showColoredCards ? 'none' : 'all'
-                }}>
-                    <div className='Cards__decor_card free_img'>
-                        <img src="/card.svg" alt="" />
-                    </div>
-                    <div className='Cards__decor_mouse free_img'>
-                        <img src="/img/Welcome/mouse.svg" alt="" />
-                    </div>
-                    <div className='Cards__item-choise free_img'>
-                        <div className='Cards__item-choise_inner'>
-                            {
-                                chelsX3.map((chel, index) => {
-                                    return <div className='Cards__item-choise_element' style={{
-                                        letterSpacing: chel.length > 4 ? -1.7 : 0
-                                    }}>{chel}</div>
-                                })
-                            }
+                </div>
+                <div className='Cards__decor'>
+                    <div className='Cards__decor_black' onClick={() => { setshowColoredCards(false) }} style={{
+                        opacity: showColoredCards ? 0 : 1,
+                        pointerEvents: !showColoredCards ? 'none' : 'all'
+                    }}>
+                        <div className='Cards__decor_card free_img'>
+                            <img src="/card.svg" alt="" />
+                        </div>
+                        <div className='Cards__decor_mouse free_img'>
+                            <img src="/img/Welcome/mouse.svg" alt="" />
+                        </div>
+                        <div className='Cards__item-choise free_img'>
+                            <div className='Cards__item-choise_inner'>
+                                {
+                                    chelsX3.map((chel, index) => {
+                                        return <div className='Cards__item-choise_element' style={{
+                                            letterSpacing: chel.length > 4 ? -1.7 : 0
+                                        }}>{chel}</div>
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='Cards__decor_colored' style={{
-                    opacity: showColoredCards ? 1 : 0
-                }}>
-                    {Array(5)
-                        .fill(0)
-                        .map((_, index) => {
-                            return <div className={`Cards__decor_colored_item Cards__decor_colored_${index + 1} free_img`} style={{
-                                zIndex: (index + 1) * 5
-                            }}>
-                                <div className='Cards__decor_colored_item_inner'>
-                                    <img src={`/cards/${index + 1}.webp`} alt="" />
+                    <div className='Cards__decor_colored' style={{
+                        opacity: showColoredCards ? 1 : 0
+                    }}>
+                        {Array(5)
+                            .fill(0)
+                            .map((_, index) => {
+                                return <div className={`Cards__decor_colored_item Cards__decor_colored_${index + 1} free_img`} style={{
+                                    zIndex: (index + 1) * 5
+                                }}>
+                                    <div className='Cards__decor_colored_item_inner'>
+                                        <img src={`/cards/${index + 1}.webp`} alt="" />
+                                    </div>
                                 </div>
-                            </div>
-                        })}
+                            })}
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
     )

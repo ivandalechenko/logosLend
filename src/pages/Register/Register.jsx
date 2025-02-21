@@ -160,7 +160,7 @@ export default () => {
             console.log(data);
             localStorage.setItem('RegEmail', email)
 
-            nav('/Verify')
+            nav('/Welcome')
             // setregStage(1)
             // localStorage.setItem('liqRegStage', '1')
             // setselectedEmail(email)
@@ -172,7 +172,7 @@ export default () => {
         } finally {
             loadingStore.setLoading(false)
         }
-        // toast.success('Successful registration!')
+        toast.success('Successful registration!')
     }
 
     return (

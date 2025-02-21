@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     min-height: calc(100dvh - 88px);
     row-gap: 32px;
+    max-width: 1200px;
 
     @media(max-width: 900px) {
         min-height: calc(100dvh - 55px);
@@ -438,4 +439,11 @@
             }
         }
     }
+}
+
+.cards-container {
+    margin-top: 93px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

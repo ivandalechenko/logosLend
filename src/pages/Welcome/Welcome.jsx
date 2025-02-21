@@ -6,22 +6,27 @@ const links = [
     {
         img: '/protocol.svg',
         to: 'Protocols',
+        text: 'Protocols'
     },
     {
         img: '/visa.svg',
         to: 'Cards',
+        text: 'Cards'
     },
     {
         img: '/logo.svg',
         to: 'Introduction',
+        text: 'Introduction'
     },
     {
         img: '/wallet.svg',
         to: 'Wallet',
+        text: 'Wallet'
     },
     {
         img: '/login.svg',
         to: 'Login',
+        text: 'Login'
     }
 ]
 
@@ -73,7 +78,7 @@ export default ({ }) => {
                         }
                     </div>
                 </div>
-                {/* <div className='Welcome_selector_desc free_img'>
+                <div className='Welcome_selector_desc free_img'>
                     <div className='Welcome_selector_desc_inner'>
                         {
                             links.map((link, index) => {
@@ -87,7 +92,7 @@ export default ({ }) => {
                             })
                         }
                     </div>
-                </div> */}
+                </div>
             </div>
 
         </div>
