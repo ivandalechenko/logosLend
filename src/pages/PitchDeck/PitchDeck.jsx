@@ -1,18 +1,20 @@
+import { observer } from 'mobx-react-lite';
 import './PitchDeck.scss';
+import { useEffect } from 'react';
+import loadingStore from '../../loadingStore';
 const siteUrl = import.meta.env.VITE_SITE_URL;
 
-export default () => {
+export default observer(() => {
+
+    useEffect(() => {
+        loadingStore.setLoading(true)
+    }, [])
+
     return (
-        // <div style={{ height: '600px' }}>
-        //     <Viewer fileUrl="/pd.pdf" />
-        // </div>
-        // <iframe src="/pd.pdf" className='PitchDeck' />
-        // 1YOs40WCitIdF9xOI5-39IQVEaAs_tftO
         <iframe
             src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${siteUrl}/pd.pdf#toolbar=0&scrollbar=0`}
-
             className='PitchDeck'
+            onLoad={() => { loadingStore.setLoading(false) }}
         ></iframe>
-        // src="https://drive.google.com/file/d/1YOs40WCitIdF9xOI5-39IQVEaAs_tftO/view?usp=sharing"
     )
-}
+})

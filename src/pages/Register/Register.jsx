@@ -235,7 +235,7 @@ export default () => {
                     </Link>
                 </TXTPlain>
                 <TXTPlain small white>
-                    <Link to={'/Register'} >
+                    <Link to="https://discord.gg/H2sEVjNR" target='_blank' >
                         Contact Support
                     </Link>
                 </TXTPlain>

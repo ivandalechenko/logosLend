@@ -6,10 +6,11 @@
     align-items: center;
     gap: 100px;
     margin: 0 auto;
-    margin-top: 64px;
-    padding: 30px 0px;
+    // margin-top: 64px;
+    // padding: 30px 0px;
     position: relative;
     z-index: 2;
+    min-height: 100vh;
 
     @media(max-width: 900px) {
         flex-wrap: wrap;
@@ -17,6 +18,10 @@
 
     @media(max-width: 500px) {
         gap: 50px;
+    }
+
+    &_wrapper {
+        min-height: 300vh;
     }
 
     &__title {

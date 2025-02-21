@@ -10,6 +10,7 @@ import LargeButton from "../../components/LargeButton/LargeButton";
 import loadingStore from "../../loadingStore";
 import axios from "axios";
 import { toast } from "react-toastify";
+import authStore from "../../authStore";
 
 const DisplayInput = observer(() => {
     const length = 6;
@@ -98,6 +99,7 @@ const DisplayInput = observer(() => {
                 });
             console.log(data);
             if (data.emailVerified) {
+                authStore.setAuth(true)
                 toast.success('Email successfully verified!');
                 nav('/Welcome')
             } else {
@@ -166,7 +168,7 @@ const DisplayInput = observer(() => {
             </div>
             <div className='Login__footer'>
                 <TXTPlain small white>
-                    <Link to={'/Register'} >
+                    <Link to="https://discord.gg/H2sEVjNR" target='_blank' >
                         Contact Support
                     </Link>
                 </TXTPlain>

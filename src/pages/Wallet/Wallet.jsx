@@ -20,10 +20,10 @@ export default () => {
     useGSAP(() => {
         const ctx = gsap.context(() => {
             gsap.fromTo(`.Wallet__chat`, {
-                x: -200,
+                y: 200,
                 opacity: 0,
             }, {
-                x: 0,
+                y: 0,
                 opacity: 1,
                 delay: 0.4,
                 duration: 0.5
@@ -81,59 +81,60 @@ export default () => {
 
     }, { scope: app });
 
-
-    const showSoon = () => {
-        gsap.to(`.memeChainText`, {
-            text: 'Soon'
+    const hideNShow = () => {
+        gsap.to(`.Wallet__description`, {
+            opacity: 0,
+            duration: 0.5
         })
         setTimeout(() => {
-            gsap.to(`.hdr`, {
-                text: `MemeChain - The Hub for Memecoin Traders`
+            gsap.to(`.Wallet__description`, {
+                opacity: 1,
+                duration: 0.5
             })
-        }, 500);
+        }, 600);
+    }
+
+    const showSoon = () => {
+        hideNShow()
         setTimeout(() => {
+            gsap.to(`.hdr`, {
+                text: `MemeChain - The Hub for Memecoin Traders`,
+                duration: 0.1
+            })
             gsap.to(`.desc`, {
                 text: `MemeChain is the central hub for community engagement, SocialFi rewards, and competitive trading. Users can:
                     Stake memecoins to earn passive rewards and unlock exclusive perks.
                     Compete in memecoin trading tournaments for a chance to win Logos tokens and top-tier NFTs.
                     Complete SocialFi quests to earn memecoins and Logos tokens.
                     Receive passive airdrop rewards through ecosystem participation.
-                    MemeChain is designed to fuel Web3 culture, rewarding engagement and active participation in the crypto space.`
+                    MemeChain is designed to fuel Web3 culture, rewarding engagement and active participation in the crypto space.`,
+                duration: 0.1
             })
-        }, 1000);
+        }, 500);
     }
 
     const showMemeChain = () => {
-        gsap.to(`.memeChainText`, {
-            text: 'MemeChain'
-        })
+        hideNShow()
         setTimeout(() => {
             gsap.to(`.hdr`, {
                 text: `Swap, Trade & Move Liquidity Instantly`,
-                duration: 3
+                duration: 0.1
             })
-        }, 500);
-        setTimeout(() => {
             gsap.to(`.desc`, {
                 text: `No gas fees. No delays. No limits. Just instant cross-chain swaps, AI-powered trading, and full memecoin support—without the headache of native tokens for gas. Whether you're aping or making serious plays, Logos Wallet functions the way a wallet should. Simple.`,
-                duration: 3
+                duration: 0.1
             })
-        }, 1000);
+        }, 500);
+
     }
 
     const showCattext = () => {
-        isSoon.current = false
-        gsap.to(`.memeChainText`, {
-            text: 'MemeChain'
-        })
+        hideNShow()
         setTimeout(() => {
             gsap.to(`.hdr`, {
                 text: `AI Trading Companions`,
-                duration: 3
+                duration: 0.1
             })
-
-        }, 500);
-        setTimeout(() => {
             gsap.to(`.desc`, {
                 text: `
                 Logos Wallet integrates AI-powered assistants that help users navigate markets with:
@@ -142,44 +143,29 @@ export default () => {
                 Automated trade execution for faster, more informed decisions.
                 Simplified, secure web3 user experience for mass adoption and onboarding.
                 `,
-                duration: 3
+                duration: 0.1
             })
-        }, 1000);
+        }, 500);
+
     }
+    const textInt = useRef(null);
+    const curText = useRef(null)
 
-
-
-    const swapText = () => {
-
-        console.log('swap');
-        if (!wts.current) {
-            console.log('swap inner');
-            if (isSoon.current) {
-                showMemeChain()
-                isSoon.current = false
-            } else {
-                showSoon()
-                isSoon.current = true
-            }
-
-            wts.current = 'meow'
-            setTimeout(() => {
-                wts.current = ''
-            }, 3000);
+    useEffect(() => {
+        curText.current = 0
+        textInt.current = setInterval(() => {
+            curText.current = curText.current + 1
+            if (curText.current > 2) curText.current = 0
+            if (curText.current === 0) showMemeChain()
+            if (curText.current === 1) showSoon()
+            if (curText.current === 2) showCattext()
+        }, 10000);
+        return () => {
+            clearInterval(textInt.current)
         }
-    }
+    }, [])
 
-    const cattext = () => {
-        console.log('cat');
-        if (!wts.current) {
-            console.log('cat inner');
-            showCattext()
-            wts.current = 'meow'
-            setTimeout(() => {
-                wts.current = ''
-            }, 3000);
-        }
-    }
+
 
     return (
         <div className='Wallet' ref={app}>
@@ -187,7 +173,7 @@ export default () => {
                 <div className='Wallet__chat_el free_img'>
                     <img src="/phone/phone.webp" alt="" />
                 </div>
-                <div className='Wallet__chat_el Wallet__chat_cat free_img' onMouseEnter={cattext} onClick={cattext}>
+                <div className='Wallet__chat_el Wallet__chat_cat free_img'>
                     <img src="/phone/cat.png" alt="" />
                 </div>
                 <div className='Wallet__chat_el Wallet__chat_messages '>
@@ -206,14 +192,11 @@ export default () => {
                 <TXTHeader className='hdr'>
                     Swap, Trade & Move Liquidity Instantly
                 </TXTHeader>
-                {/* <h3 className='Wallet__description-title hdr'>
-                </h3> */}
+
                 <TXTPlain className={'desc'}>
                     No gas fees. No delays. No limits. Just instant cross-chain swaps, AI-powered trading, and full memecoin support—without the headache of native tokens for gas. Whether you're aping or making serious plays, Logos Wallet functions the way a wallet should. Simple.
                 </TXTPlain>
-                <ButtonOut text={'MemeChain'} className="btn" onMouseEnter={swapText} action={swapText} />
-
-                {/* <button className='Wallet__description-btn' onMouseEnter={swapText} onClick={swapText}><span className='memeChainText'>MemeChain</span> <img src="./img/buttonWhitepapper.svg" alt="" /></button> */}
+                <ButtonOut text={'MemeChain'} className="btn" />
             </div>
         </div>
     )

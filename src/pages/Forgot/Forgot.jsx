@@ -43,7 +43,7 @@ const Forgot = observer(() => {
 
             <div className='Login__footer'>
                 <TXTPlain small white>
-                    <Link to={'/Register'} >
+                    <Link to="https://discord.gg/H2sEVjNR" target='_blank' >
                         Contact Support
                     </Link>
                 </TXTPlain>

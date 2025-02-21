@@ -18,7 +18,7 @@ export default () => {
                 scrollTrigger: {
                     trigger: '.Introduction_block_large',
                     // markers: true,
-                    start: "top top", // Фиксируем при достижении верха
+                    start: "top 100px", // Фиксируем при достижении верха
                     end: "bottom bottom", // Разрешаем выход при конце секции
                     pin: true, // Закрепляем
                     pinSpacing: false, // Отключаем добавление пустого пространства
@@ -33,7 +33,7 @@ export default () => {
                     scrub: 1,
                     trigger: '.Introduction_block_large',
                     // markers: true,
-                    start: "top top", // Фиксируем при достижении верха
+                    start: "top 100px", // Фиксируем при достижении верха
                     end: "bottom bottom", // Разрешаем выход при конце секции
                 }
             })

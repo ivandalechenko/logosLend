@@ -161,11 +161,16 @@ body {
         flex-wrap: wrap;
         align-items: center;
         align-content: center;
-        min-height: calc(100dvh - 88px);
+        // min-height: calc(100dvh - 94px);
         padding: 0px 12px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        min-height: 100vh;
 
         @media(max-width: 900px) {
-            min-height: calc(100dvh - 55px);
+            min-height: 100vh;
+            // min-height: calc(100dvh - 55px);
         }
     }
 }

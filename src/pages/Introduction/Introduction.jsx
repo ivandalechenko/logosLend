@@ -13,7 +13,6 @@ export default () => {
 
     const app = useRef(null)
 
-
     return (
         <div className='Introduction' ref={app}>
             <div className='Introduction_block'>

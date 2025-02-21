@@ -7,10 +7,15 @@ import TXTPlain from '../../components/TXTPlain/TXTPlain';
 import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
 import LargeButton from '../../components/LargeButton/LargeButton';
 import loadingStore from '../../loadingStore';
+import authStore from '../../authStore';
+
+
+
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { observer } from 'mobx-react-lite';
 
-export default () => {
+export default observer(() => {
     const [showPassword, setShowPassword] = useState(false);
     const [remember, setremember] = useState(false);
     const togglePasswordVisibility = () => {
@@ -43,11 +48,13 @@ export default () => {
             if (data.Authorization) {
                 toast.success('Successfully logged in!');
                 nav('/Welcome')
+                authStore.setAuth(true)
             } else {
                 toast.warning('Invalid credentials!');
             }
         } catch (error) {
-            toast.warn('Something went wrong, please try later');
+            toast.warning('Invalid credentials!');
+            // toast.warn('Something went wrong, please try later');
             console.log(error);
         } finally {
             loadingStore.setLoading(false)
@@ -103,11 +110,11 @@ export default () => {
                     </Link>
                 </TXTPlain>
                 <TXTPlain small white>
-                    <Link to={'/Register'} >
+                    <Link to="https://discord.gg/H2sEVjNR" target='_blank' >
                         Contact Support
                     </Link>
                 </TXTPlain>
             </div>
         </div>
     );
-};
+})

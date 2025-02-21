@@ -14,7 +14,7 @@ const chels = ['TRUMP', 'PNUT', 'PEPE', 'MUMU', 'POPCAT']
 const chelsX3 = [...chels, ...chels, ...chels]
 
 export default () => {
-    const [showColoredCards, setshowColoredCards] = useState(false);
+    const [showColoredCards, setshowColoredCards] = useState(true);
 
     useEffect(() => {
         if (showColoredCards) {
@@ -33,6 +33,12 @@ export default () => {
                     duration: .5
                 })
             });
+        } else {
+            gsap.fromTo(`.Cards__decor_black`, {
+                y: 1000,
+            }, {
+                y: 0,
+            })
             gsap.to(`.Cards__join_span`, {
                 text: `Participate in the airdrop today:`,
                 delay: 3,
@@ -53,11 +59,6 @@ export default () => {
                 delay: 2,
                 duration: 2
             })
-
-
-
-
-
         }
     }, [showColoredCards])
 
@@ -101,9 +102,9 @@ export default () => {
 
             </div>
             <div className='Cards__decor'>
-                <div className='Cards__decor_black' onClick={() => { setshowColoredCards(true) }} style={{
+                <div className='Cards__decor_black' onClick={() => { setshowColoredCards(false) }} style={{
                     opacity: showColoredCards ? 0 : 1,
-                    pointerEvents: showColoredCards ? 'none' : 'all'
+                    pointerEvents: !showColoredCards ? 'none' : 'all'
                 }}>
                     <div className='Cards__decor_card free_img'>
                         <img src="/card.svg" alt="" />

@@ -3,6 +3,8 @@ import './Header.scss';
 import { useState } from 'react';
 import TXTPlain from '../TXTPlain/TXTPlain';
 import TXTSubheader from '../TXTSubheader/TXTSubheader';
+import { observer } from 'mobx-react-lite';
+import authStore from '../../authStore';
 
 const Header = () => {
 
@@ -32,7 +34,7 @@ const Header = () => {
           </Link>
         </div>
         <div className='Header__item'>
-          <a href="#" className='Header__item-ds'>
+          <a href="https://discord.gg/H2sEVjNR" target='_blank' className='Header__item-ds'>
             <img src="./img/ds.svg" alt="" />
             <TXTSubheader small className={'Header__item-ds-a'}>
               Join Our Discord
@@ -40,7 +42,11 @@ const Header = () => {
           </a>
           <Link className='Header__item-id' to={'/Login'} >
             <TXTPlain>
-              <span>Connect</span> ID
+              {
+                authStore.auth ? 'Logout' : <>
+                  <span>Connect</span> ID
+                </>
+              }
             </TXTPlain>
           </Link>
         </div>
@@ -99,4 +105,5 @@ const Header = () => {
   );
 };
 
-export default Header;
+
+export default observer(Header);
