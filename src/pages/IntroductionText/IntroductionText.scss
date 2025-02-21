@@ -1,13 +1,22 @@
-.IntroductionText{
-    max-width: 1600px;
+.IntroductionText {
     width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
-    padding: 40px 100px;
-    @media (max-width: 550px){
-        padding: 20px 20px;
+
+    @media (min-width: 769px) {
+        max-width: 1200px;
+        padding: 0 40px;
     }
+
+    @media (max-width: 768px) {
+        width: 90%;
+        max-width: 600px;
+        padding: 0;
+    }
+
     &__title{
         font-family: "ClashDisplayMedium";
         font-size: 56px;
@@ -26,6 +35,12 @@
         max-width: 700px;
         line-height: 150%;
         font-weight: 400;
+
+        @media (min-width: 769px) {
+            max-width: 1000px;
+            line-height: 180%;
+        }
+        
         @media (min-width: 1900px){
             font-size: 24px;
         }

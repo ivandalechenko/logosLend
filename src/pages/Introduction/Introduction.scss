@@ -91,6 +91,10 @@
                 height: 400vh;
             }
         }
+
+        @media screen and (min-width: 769px) {
+            margin-top: 93px;
+        }
     }
 
     &__title {
@@ -223,4 +227,8 @@
         //     }
         // }
     }
+}
+
+.introduction {
+    margin-top: 93px;
 }

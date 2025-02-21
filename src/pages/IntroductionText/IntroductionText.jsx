@@ -8,7 +8,7 @@ export default () => {
             <TXTHeader left>
                 Introduction
             </TXTHeader>
-            <TXTPlain left>
+            <TXTPlain>
                 Breaking Barriers, Unifying Worlds, Leading the Future.
                 <br /><br />
                 Logos Layer (LL) is redefining the blockchain landscape with groundbreaking cross-chain infrastructure, shattering the barriers of stuck liquidity, chain wars, and complexity. By seamlessly connecting ecosystems, optimizing transaction flows, and supercharging scalability, LL eliminates the inefficiencies of outdated bridging solutions, paving the way for a unified, frictionless blockchain future.
