@@ -9,15 +9,35 @@ import TXTHeader from '../../components/TXTHeader/TXTHeader';
 import TXTPlain from '../../components/TXTPlain/TXTPlain';
 import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
 import SoloInputBlock from '../../components/SoloInputBlock/SoloInputBlock';
+import { useLocation } from 'react-router-dom';
 
 const chels = ['TRUMP', 'PNUT', 'PEPE', 'MUMU', 'POPCAT']
 const chelsX3 = [...chels, ...chels, ...chels]
 
 export default () => {
-    const [showColoredCards, setshowColoredCards] = useState(true);
+    const [activeCard, setActiveCard] = useState(0); // 0 for Crypto Debit, 1 for Logos Visa
+    const [isScrolling, setIsScrolling] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
-        if (showColoredCards) {
+        if (location.state?.fromScroll) {
+            // Disable scrolling
+            document.body.style.overflow = 'hidden';
+
+            // Re-enable scrolling after 2 seconds
+            const timer = setTimeout(() => {
+                document.body.style.overflow = 'auto';
+            }, 2000);
+
+            return () => {
+                clearTimeout(timer);
+                document.body.style.overflow = 'auto';
+            };
+        }
+    }, []);
+
+    useEffect(() => {
+        if (activeCard === 0) {
             const delayModifier = .2
             const baseDelay = .5
 
@@ -60,7 +80,34 @@ export default () => {
                 duration: 2
             })
         }
-    }, [showColoredCards])
+    }, [activeCard])
+
+    // Add scroll handler
+    useEffect(() => {
+        const handleWheel = (e) => {
+            if (isScrolling) return;
+
+            setIsScrolling(true);
+
+            // Scroll down moves from Crypto Debit to Logos Visa
+            if (e.deltaY > 0) {
+                setActiveCard(prev => prev === 1 ? 1 : prev + 1);
+            } else {
+                setActiveCard(prev => prev === 0 ? 0 : prev - 1);
+            }
+
+            // Prevent rapid scrolling by adding a small delay
+            setTimeout(() => {
+                setIsScrolling(false);
+            }, 500);
+        };
+
+        window.addEventListener('wheel', handleWheel);
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+        };
+    }, [isScrolling]);
 
     const app = useRef(null)
 
@@ -83,29 +130,49 @@ export default () => {
             <div className='Cards' ref={app}>
                 <div className='Cards_balancer'></div>
                 <div className='Cards_content'>
-                    <TXTHeader className={'Cards__title'}>
-                        Crypto Debit Cards
-                    </TXTHeader>
-                    {/* <h3 className='Cards__title'></h3> */}
+                    <div className="Cards__dots">
+                        <div
+                            className={`Cards__dot ${activeCard === 0 ? 'active' : ''}`}
+                            onClick={() => setActiveCard(0)}
+                        />
+                        <div
+                            className={`Cards__dot ${activeCard === 1 ? 'active' : ''}`}
+                            onClick={() => setActiveCard(1)}
+                        />
+                    </div>
 
-                    <TXTPlain tac className={'Cards__description'} >
-                        We provide a secure , feature-rich platform that simplifies the investment process and opens doors to new possibilities in the crypto market
+                    <TXTHeader className={'Cards__title'}>
+                        {activeCard === 0 ? 'Crypto Debit Cards' : 'Logos Visa Cards'}
+                    </TXTHeader>
+
+                    <TXTPlain tac className={'Cards__description'}>
+                        {activeCard === 0
+                            ? 'We provide a secure, feature-rich platform that simplifies the investment process and opens doors to new possibilities in the crypto market'
+                            : 'Crypto can be spent like cash with Visa integration: direct crypto-to-fiat at any merchant easy fiat-to-crypto conversion for newcomers, instant transactions Visually enhanced in collaboration with your favorite memecoins'
+                        }
                     </TXTPlain>
 
-                    <TXTSubheader className={'Cards__join'} small >
+                    <TXTSubheader className={'Cards__join'} small>
                         <span className='Cards__join_span'>
-                            Join The Waitlist!
+                            {activeCard === 0 ? 'Join The Waitlist!' : 'Participate in the airdrop today:'}
                         </span>
-                        <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'></a>
+                        <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'>
+                            {activeCard === 0 ? '' : 'Open mini app ->'}
+                        </a>
                     </TXTSubheader>
-                    <SoloInputBlock className={'Cards__inp'} placeholder={'Example@gmail.com'} btnText='Sign Up' />
 
-
+                    {activeCard === 0 && (
+                        <SoloInputBlock
+                            className={'Cards__inp'}
+                            placeholder={'Example@gmail.com'}
+                            btnText='Sign Up'
+                        />
+                    )}
                 </div>
                 <div className='Cards__decor'>
-                    <div className='Cards__decor_black' onClick={() => { setshowColoredCards(false) }} style={{
-                        opacity: showColoredCards ? 0 : 1,
-                        pointerEvents: !showColoredCards ? 'none' : 'all'
+                    <div className='Cards__decor_black' style={{
+                        opacity: activeCard === 0 ? 1 : 0,
+                        pointerEvents: activeCard === 0 ? 'all' : 'none'
                     }}>
                         <div className='Cards__decor_card free_img'>
                             <img src="/card.svg" alt="" />
@@ -126,7 +193,7 @@ export default () => {
                         </div>
                     </div>
                     <div className='Cards__decor_colored' style={{
-                        opacity: showColoredCards ? 1 : 0
+                        opacity: activeCard === 1 ? 1 : 0
                     }}>
                         {Array(5)
                             .fill(0)
@@ -139,9 +206,7 @@ export default () => {
                                     </div>
                                 </div>
                             })}
-
                     </div>
-
                 </div>
             </div>
         </div>

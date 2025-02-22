@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Welcome.scss";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const links = [
     {
@@ -39,6 +39,7 @@ export default ({ }) => {
     const [selected, setselected] = useState('');
 
     const app = useRef(null)
+    const navigate = useNavigate();
 
     useGSAP(
         () => {
@@ -54,6 +55,20 @@ export default ({ }) => {
         },
         { scope: app }
     )
+
+    useEffect(() => {
+        const handleScroll = (e) => {
+            if (e.deltaY > 0) {
+                navigate('/Cards', { state: { fromScroll: true } });
+            }
+        };
+
+        window.addEventListener('wheel', handleScroll);
+
+        return () => {
+            window.removeEventListener('wheel', handleScroll);
+        };
+    }, []);
 
     return (
         <div className="Welcome" ref={app}>
