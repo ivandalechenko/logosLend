@@ -65,17 +65,17 @@ const Header = () => {
                 tb: true
               },
               {
-                name: 'Pitch deck',
+                name: 'Investors',
                 to: '/PitchDeck',
               },
               {
                 name: 'Wallet',
                 to: '/Wallet',
               },
-              {
-                name: 'Visa Card',
-                to: '/Cards',
-              },
+              // {
+              //   name: 'Visa Card',
+              //   to: '/Cards',
+              // },
               {
                 name: 'Protocols',
                 to: '/Protocols',
