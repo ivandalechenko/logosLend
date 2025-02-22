@@ -6,31 +6,75 @@ import TXTSubheader from '../../components/TXTSubheader/TXTSubheader';
 
 export default () => {
     const glist = useRef(null);
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const containerRef = useRef(null);
+    const [scrollPosition, setScrollPosition] = useState(() => {
+        return window.innerWidth <= 768 ? 0 : 0;
+    });
+    const [isDragging, setIsDragging] = useState(false);
+    const [startY, setStartY] = useState(0);
 
     useEffect(() => {
-        const handleScroll = () => {
+        const container = containerRef.current;
+
+        const handleWheel = (e) => {
+            e.preventDefault();
             if (glist.current) {
-                // Get the total scrollable width of the roadmap list
                 const totalWidth = glist.current.scrollWidth - glist.current.clientWidth;
-
-                // Calculate how far we've scrolled down as a percentage
-                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
-
-                // Move the list based on scroll position
-                const moveAmount = -(totalWidth * scrollPercent);
-                setScrollPosition(moveAmount);
+                const newPosition = Math.max(
+                    -(totalWidth + 20),
+                    Math.min(0, scrollPosition - e.deltaY)
+                );
+                setScrollPosition(newPosition);
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
+        const handleTouchStart = (e) => {
+            setIsDragging(true);
+            setStartY(e.touches[0].clientY);
         };
-    }, []);
+
+        const handleTouchMove = (e) => {
+            if (!isDragging || !glist.current) return;
+
+            const currentY = e.touches[0].clientY;
+            const deltaY = (startY - currentY) * 2;
+            setStartY(currentY);
+
+            const totalWidth = glist.current.scrollWidth - glist.current.clientWidth;
+            const newPosition = Math.max(
+                -(totalWidth + 20),
+                Math.min(0, scrollPosition - deltaY)
+            );
+
+            setScrollPosition(newPosition);
+            e.preventDefault();
+        };
+
+        const handleTouchEnd = () => {
+            setIsDragging(false);
+        };
+
+        if (container) {
+            container.addEventListener('wheel', handleWheel, { passive: false });
+            container.addEventListener('touchstart', handleTouchStart, { passive: true });
+            container.addEventListener('touchmove', handleTouchMove, { passive: false });
+            container.addEventListener('touchend', handleTouchEnd);
+            container.addEventListener('touchcancel', handleTouchEnd);
+        }
+
+        return () => {
+            if (container) {
+                container.removeEventListener('wheel', handleWheel);
+                container.removeEventListener('touchstart', handleTouchStart);
+                container.removeEventListener('touchmove', handleTouchMove);
+                container.removeEventListener('touchend', handleTouchEnd);
+                container.removeEventListener('touchcancel', handleTouchEnd);
+            }
+        };
+    }, [scrollPosition, isDragging, startY]);
 
     return (
-        <div className='Roadmap'>
+        <div className='Roadmap' ref={containerRef}>
             <div className='Introduction_block'>
                 <TXTHeader>
                     Roadmap

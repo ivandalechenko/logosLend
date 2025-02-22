@@ -1,10 +1,16 @@
 .Roadmap {
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
+    min-height: 100vh;
     
     .Introduction_block {
         padding: 40px 20px;
         text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
     }
 
     .Introduction_roadmap_list {
@@ -12,17 +18,72 @@
         gap: 40px;
         padding: 40px 0;
         margin: 0 auto;
-        max-width: 100%;
-        overflow-x: auto;
-        -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
-        scrollbar-width: none;  /* Hide scrollbar Firefox */
+        width: max-content;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        touch-action: none;
+        user-select: none;
         
         &::-webkit-scrollbar {
-            display: none;  /* Hide scrollbar Chrome, Safari and Opera */
+            display: none;
         }
         
         .Introduction_roadmap_element {
-            flex-shrink: 0;  /* Prevent items from shrinking */
+            flex-shrink: 0;
+            width: 220px;
+            padding: 15px;
+            
+            &_num, &_arrow, &_info {
+                margin: 10px 0;
+            }
+            
+            &_arrow img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            &_info {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .Roadmap {
+        .Introduction_roadmap_list {
+            padding: 20px 0;
+            gap: 12px;
+            transform: translateX(0);
+            left: 20px;
+            
+            .Introduction_roadmap_element {
+                width: 25px;
+                padding: 5px;
+                
+                &_num {
+                    font-size: 0.85em;
+                }
+
+                &_arrow img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                &_info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 4px;
+                }
+            }
         }
     }
 }

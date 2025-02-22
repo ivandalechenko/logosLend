@@ -95,21 +95,18 @@ export default ({ }) => {
                 </div>
                 <div className='Welcome_selector_desc free_img'>
                     <div className='Welcome_selector_desc_inner'>
-                        {
-                            links.map((link, index) => {
-                                if (link.text && link.text !== 'meow') {
-                                    return <div className='Welcome_selector_desc_item' style={{
-                                        opacity: selected === link.text || selected === 'meow' ? 1 : .2
-                                    }}>
-                                        {link.text}
-                                    </div>
-                                }
-                            })
-                        }
+                        <div className='Welcome__decor_mouse free_img'>
+                            <img src="/img/Welcome/mouse.svg" alt="" />
+                        </div>
+                        <div className='Welcome_selector_desc_item' style={{
+                            opacity: selected === 'VISA' ? 1 : .2
+                        }}>
+                            VISA
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };

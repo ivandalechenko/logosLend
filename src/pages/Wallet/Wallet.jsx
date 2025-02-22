@@ -13,6 +13,8 @@ export default () => {
     const wts = useRef(null)
     const isSoon = useRef(null)
     const app = useRef(null)
+    const [activeDot, setActiveDot] = useState(0);
+
     useEffect(() => {
         isSoon.current = false
     }, [])
@@ -96,6 +98,7 @@ export default () => {
 
     const showSoon = () => {
         hideNShow()
+        setActiveDot(1)
         setTimeout(() => {
             gsap.to(`.hdr`, {
                 text: `MemeChain - The Hub for Memecoin Traders`,
@@ -115,6 +118,7 @@ export default () => {
 
     const showMemeChain = () => {
         hideNShow()
+        setActiveDot(0)
         setTimeout(() => {
             gsap.to(`.hdr`, {
                 text: `Swap, Trade & Move Liquidity Instantly`,
@@ -130,6 +134,7 @@ export default () => {
 
     const showCattext = () => {
         hideNShow()
+        setActiveDot(2)
         setTimeout(() => {
             gsap.to(`.hdr`, {
                 text: `AI Trading Companions`,
@@ -153,6 +158,7 @@ export default () => {
 
     useEffect(() => {
         curText.current = 0
+        setActiveDot(0)
         textInt.current = setInterval(() => {
             curText.current = curText.current + 1
             if (curText.current > 2) curText.current = 0
@@ -165,7 +171,21 @@ export default () => {
         }
     }, [])
 
-
+    // Add click handlers for the dots
+    const handleDotClick = (index) => {
+        clearInterval(textInt.current)
+        curText.current = index
+        if (index === 0) showMemeChain()
+        if (index === 1) showSoon()
+        if (index === 2) showCattext()
+        textInt.current = setInterval(() => {
+            curText.current = curText.current + 1
+            if (curText.current > 2) curText.current = 0
+            if (curText.current === 0) showMemeChain()
+            if (curText.current === 1) showSoon()
+            if (curText.current === 2) showCattext()
+        }, 10000);
+    }
 
     return (
         <div className='Wallet' ref={app}>
@@ -197,6 +217,15 @@ export default () => {
                     No gas fees. No delays. No limits. Just instant cross-chain swaps, AI-powered trading, and full memecoin support—without the headache of native tokens for gas. Whether you're aping or making serious plays, Logos Wallet functions the way a wallet should. Simple.
                 </TXTPlain>
                 <ButtonOut text={'MemeChain'} className="btn" />
+                <div className='Wallet__dots'>
+                    {[0, 1, 2].map((index) => (
+                        <div
+                            key={index}
+                            className={`Wallet__dot ${activeDot === index ? 'active' : ''}`}
+                            onClick={() => handleDotClick(index)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )
