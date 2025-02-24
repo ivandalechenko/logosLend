@@ -231,6 +231,7 @@
         margin-top: 32px;
         display: flex;
         column-gap: 12px;
+        border: none ;
 
         // a,
         // span {
@@ -474,4 +475,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.Cards__join_a {
+    padding-top: 50px;
+}
+
+.Cards__airdrop {
+    margin-top: 21px;
 }

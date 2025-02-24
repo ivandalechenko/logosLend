@@ -62,10 +62,10 @@ export default observer(() => {
 
               <Route path="/Protocols" element={<Protocols />} />
               <Route path="/Cards" element={<Cards />} />
-              <Route path="/Wallet" element={<Wallet />} />
+              {/* <Route path="/Wallet" element={<Wallet />} /> */}
               <Route path="/PitchDeck" element={<PitchDeck />} />
               {/* <Route path="/Advantages" element={<WhyExchange />} /> */}
-              <Route path="/More" element={<More />} />
+              {/* <Route path="/More" element={<More />} /> */}
               <Route path="/Roadmap" element={<Roadmap />} />
               <Route path="/Introduction" element={<Introduction />} />
 

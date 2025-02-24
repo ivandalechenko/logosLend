@@ -68,10 +68,10 @@ const Header = () => {
                 name: 'Investors',
                 to: '/PitchDeck',
               },
-              {
-                name: 'Wallet',
-                to: '/Wallet',
-              },
+              // {
+              //   name: 'Wallet',
+              //   to: '/Wallet',
+              // },
               // {
               //   name: 'Visa Card',
               //   to: '/Cards',
@@ -84,10 +84,10 @@ const Header = () => {
                 name: 'Roadmap',
                 to: '/Roadmap',
               },
-              {
-                name: 'More',
-                to: '/More',
-              }
+              // {
+              //   name: 'More',
+              //   to: '/More',
+              // }
             ].map((hel, index) => {
               return <TXTPlain key={`headerLink-${index}`} className='Header__item-nav'>
                 <Link

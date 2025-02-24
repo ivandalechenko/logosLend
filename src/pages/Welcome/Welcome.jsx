@@ -20,7 +20,7 @@ const links = [
     },
     {
         img: '/wallet.svg',
-        to: 'Wallet',
+        // to: 'Wallet',
         text: 'Wallet'
     },
     {
@@ -39,7 +39,6 @@ export default ({ }) => {
     const [selected, setselected] = useState('');
 
     const app = useRef(null)
-    const navigate = useNavigate();
 
     useGSAP(
         () => {
@@ -55,20 +54,6 @@ export default ({ }) => {
         },
         { scope: app }
     )
-
-    useEffect(() => {
-        const handleScroll = (e) => {
-            if (e.deltaY > 0) {
-                navigate('/Cards', { state: { fromScroll: true } });
-            }
-        };
-
-        window.addEventListener('wheel', handleScroll);
-
-        return () => {
-            window.removeEventListener('wheel', handleScroll);
-        };
-    }, []);
 
     return (
         <div className="Welcome" ref={app}>
@@ -96,7 +81,8 @@ export default ({ }) => {
                 <div className='Welcome_selector_desc free_img'>
                     <div className='Welcome_selector_desc_inner'>
                         <div className='Welcome__decor_mouse free_img'>
-                            <img src="/img/Welcome/mouse.svg" alt="" />
+                            <Link to={"/Cards"}>
+                                <img src="/img/Welcome/mouse.svg" alt="" /></Link>
                         </div>
                         <div className='Welcome_selector_desc_item' style={{
                             opacity: selected === 'VISA' ? 1 : .2

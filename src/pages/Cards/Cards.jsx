@@ -58,27 +58,22 @@ export default () => {
                 y: 1000,
             }, {
                 y: 0,
-            })
+            });
             gsap.to(`.Cards__join_span`, {
                 text: `Participate in the airdrop today:`,
                 delay: 3,
                 duration: 1
-            })
-            gsap.to(`.Cards__join_a`, {
-                text: `Open mini app ->`,
-                delay: 3,
-                duration: 1
-            })
+            });
             gsap.to('.Cards__title', {
                 text: 'Logos Visa Cards',
                 delay: 2,
                 duration: 2
-            })
+            });
             gsap.to('.Cards__description', {
                 text: 'Crypto can be spent like cash with Visa integration: direct crypto-to-fiat at any merchant easy fiat-to-crypto conversion for newcomers, instant transactions Visually enhanced in collaboration with your favorite memecoins',
                 delay: 2,
                 duration: 2
-            })
+            });
         }
     }, [activeCard])
 
@@ -142,7 +137,7 @@ export default () => {
                     </div>
 
                     <TXTHeader className={'Cards__title'}>
-                        {activeCard === 0 ? 'Crypto Debit Cards' : 'Logos Visa Cards'}
+                        {activeCard === 0 ? 'Logos Visa Cards' : 'Logos Visa Cards'}
                     </TXTHeader>
 
                     <TXTPlain tac className={'Cards__description'}>
@@ -152,21 +147,22 @@ export default () => {
                         }
                     </TXTPlain>
 
-                    <TXTSubheader className={'Cards__join'} small>
-                        <span className='Cards__join_span'>
-                            {activeCard === 0 ? 'Join The Waitlist!' : 'Participate in the airdrop today:'}
-                        </span>
-                        <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'>
-                            {activeCard === 0 ? '' : 'Open mini app ->'}
-                        </a>
-                    </TXTSubheader>
+                    {/* <TXTSubheader className={'Cards__join'} small> */}
+                    {/* <span className='Cards__join_span'>
+                            <img src="/img/buttonWhitepapper.svg" alt="" href="https://t.me/LogosLayer_bot" target='blank' />
+                        </span> */}
+                    <a className='Cards__join_a' href="https://t.me/LogosLayer_bot" target='blank'>
+                        <img src="/img/buttonWhitepapper.svg" alt="" />
+                    </a>
+                    {/* </TXTSubheader> */}
 
                     {activeCard === 0 && (
-                        <SoloInputBlock
-                            className={'Cards__inp'}
-                            placeholder={'Example@gmail.com'}
-                            btnText='Sign Up'
-                        />
+                        // <SoloInputBlock
+                        //     className={'Cards__inp'}
+                        //     placeholder={'Example@gmail.com'}
+                        //     btnText='Sign Up'
+                        // />
+                        <TXTPlain className='Cards__airdrop'>AIRDROP PORTAL</TXTPlain>
                     )}
                 </div>
                 <div className='Cards__decor'>

@@ -15,15 +15,16 @@
 
     .Introduction_roadmap_list {
         display: flex;
-        gap: 40px;
+        gap: 20px;
         padding: 40px 0;
         margin: 0 auto;
-        width: max-content;
+        width: auto;
         position: relative;
         left: 50%;
+        // right: 50%;
         transform: translateX(-50%);
         -ms-overflow-style: none;
-        scrollbar-width: none;
+        scrollbar-width: 100%;
         touch-action: none;
         user-select: none;
         
