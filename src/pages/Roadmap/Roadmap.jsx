@@ -100,8 +100,16 @@ export default () => {
                                 type: 'Test Mainnet'
                             },
                             {
-                                date: `Q1 2025`,
+                                date: `2025`,
                                 type: 'TGE'
+                            },
+                            {
+                                date: `Q1`,
+                                type: 'Cross-chain Builders Portal & Hackathon Events'
+                            },
+                            {
+                                date: `Q1`,
+                                type: 'Cross-Chain Wallet'
                             },
                             {
                                 date: `Q2 2025`,
@@ -109,23 +117,27 @@ export default () => {
                             },
                             {
                                 date: `Q2 2025`,
-                                type: 'Memechain/Socialfi Release'
+                                type: 'Meme chain / Social fi Release'
                             },
                             {
-                                date: `Q22025`,
-                                type: 'Ecosystem Release'
+                                date: `Q2`,
+                                type: 'wide-scale integration for web3 Ecosystems and Exchanges'
                             },
                             {
-                                date: `Q32025`,
-                                type: 'Staking Protocol Release'
+                                date: `Q2`,
+                                type: 'the next gen security / digital asset storage'
                             },
                             {
-                                date: `Q32025`,
-                                type: 'Partnership Expansion'
+                                date: `Q2`,
+                                type: 'Staking protocol release'
                             },
                             {
-                                date: `Q42025`,
-                                type: 'Interactive Global Adoption'
+                                date: `Q4`,
+                                type: 'wide-scale integration with web2 Merchants & Consumers'
+                            },
+                            {
+                                date: `Q4`,
+                                type: 'synthetic assets release'
                             }
                         ].map((rel, index) => {
                             return <div className='Introduction_roadmap_element'>
